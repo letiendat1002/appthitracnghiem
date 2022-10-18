@@ -18,6 +18,11 @@ public class QuestionAnswerManagement extends JFrame {
     private JLabel labelAnswerContentViewQuestionAnswerManagement;
     private JLabel labelFindByQuestionIDViewQuestionAnswerManagement;
     private JLabel labelFindByAnswerIDViewQuestionAnswerManagement;
+    private JPanel panelViewQuestionAnswerManagement;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 
     public QuestionAnswerManagement(String title){
         super(title);
