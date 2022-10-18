@@ -7,7 +7,7 @@ public class MenuHost {
     private JButton buttonSubjectManagementViewMenuHost;
     private JButton buttonRoomManagementViewMenuHost;
     private JButton buttonExamManagementViewMenuHost;
-    private JButton buttonQuestManagementViewMenuHost;
+    private JButton buttonQuestionManagementViewMenuHost;
     private JPanel panelViewMenuHost;
 
     private void createUIComponents() {
