@@ -3,9 +3,9 @@ package gui;
 import javax.swing.*;
 
 public class SubjectManagement {
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField textfieldSubjectNameViewSubjectManagement;
+    private JTextField textfieldFindBySubjectIDViewSubjectManagement;
+    private JTextField textfieldFindBySubjectNameViewSubjectManagement;
     private JButton buttonUpdateViewSubjectManagement;
     private JButton buttonDeleteViewSubjectManagement;
     private JButton buttonBackViewSubjectManagement;
@@ -15,4 +15,5 @@ public class SubjectManagement {
     private JLabel labelSubjectNameViewSubjectManagement;
     private JLabel labelFindBySubjectIDViewSubjectManagement;
     private JLabel labelFindBySubjectNameViewSubjectManagement;
+    private JPanel table;
 }

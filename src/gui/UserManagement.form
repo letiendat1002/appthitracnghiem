@@ -16,7 +16,7 @@
           <text value="ID/CCCD"/>
         </properties>
       </component>
-      <component id="f35c7" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="f35c7" class="javax.swing.JTextField" binding="textfieldUserIDViewUserManagement">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -32,7 +32,7 @@
           <text value="Họ và tên"/>
         </properties>
       </component>
-      <component id="71596" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="71596" class="javax.swing.JTextField" binding="textfieldFullnameViewUserManagement">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -40,7 +40,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="38cc6" class="javax.swing.JLabel" binding="labelDateofBirthViewUserManagement">
+      <component id="38cc6" class="javax.swing.JLabel" binding="labelBirthDateViewUserManagement">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -48,7 +48,7 @@
           <text value="Ngày sinh"/>
         </properties>
       </component>
-      <component id="cb59c" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="cb59c" class="javax.swing.JTextField" binding="textfieldBirthDateViewUserManagement">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -56,7 +56,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="1118b" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="1118b" class="javax.swing.JTextField" binding="textfieldEmailViewUserManagement">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -152,7 +152,7 @@
           <text value="Tìm theo họ tên"/>
         </properties>
       </component>
-      <component id="10bc7" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="10bc7" class="javax.swing.JTextField" binding="textfieldFindByUserIDViewUserManagement">
         <constraints>
           <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -160,7 +160,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="4c88c" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+      <component id="4c88c" class="javax.swing.JTextField" binding="textFullnameViewUserManagement">
         <constraints>
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
