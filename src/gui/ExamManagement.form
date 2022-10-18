@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.ExamManagement">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="10" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panelViewExamManagement" layout-manager="GridLayoutManager" row-count="10" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="681" height="400"/>
@@ -10,66 +10,66 @@
     <children>
       <component id="c9a5d" class="javax.swing.JLabel" binding="labelSubjectIDViewExamManagement">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Mã Môn Thi : "/>
+          <text value="Mã Môn Thi:"/>
         </properties>
       </component>
       <component id="ea364" class="javax.swing.JLabel" binding="labelExamTitleViewExamManagement">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Tiêu Đề : "/>
+          <text value="Tiêu Đề:"/>
         </properties>
       </component>
       <component id="71ae" class="javax.swing.JLabel" binding="labelTotalQuestionViewExamManagement">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Số Câu Hỏi : "/>
+          <text value="Số Câu Hỏi:"/>
         </properties>
       </component>
       <component id="1ab0e" class="javax.swing.JLabel" binding="labelTotalScoreViewExamManagement">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Tổng Điểm : "/>
+          <text value="Tổng Điểm:"/>
         </properties>
       </component>
       <component id="b5a66" class="javax.swing.JLabel" binding="labelScorePerQuestionViewExamManagement">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Điểm Mỗi Câu : "/>
+          <text value="Điểm Mỗi Câu:"/>
         </properties>
       </component>
       <component id="3e30e" class="javax.swing.JLabel" binding="labelEasyAmountViewExamManagement">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Số Câu Dễ : "/>
+          <text value="Số Câu Dễ:"/>
         </properties>
       </component>
       <component id="1cb2c" class="javax.swing.JLabel" binding="labelAverageAmountViewExamManagement">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Số Câu Trung Bình : "/>
+          <text value="Số Câu Trung Bình:"/>
         </properties>
       </component>
       <component id="52747" class="javax.swing.JLabel" binding="labelHardAmountViewExamManagement">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Số Câu Khó : "/>
+          <text value="Số Câu Khó:"/>
         </properties>
       </component>
       <component id="cf3dd" class="javax.swing.JTextField" binding="textfieldSubjectIDViewExamManagement">
@@ -183,7 +183,7 @@
           <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Tìm Theo Mã Đề Thi : "/>
+          <text value="Tìm Theo Mã Đề Thi:"/>
         </properties>
       </component>
       <component id="2e541" class="javax.swing.JTextField" binding="textfieldFindByExamIDViewExamManagement">
@@ -199,7 +199,7 @@
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Tìm Theo Tên Môn Thi : "/>
+          <text value="Tìm Theo Tên Môn Thi:"/>
         </properties>
       </component>
       <component id="666fe" class="javax.swing.JTextField" binding="textfieldFindBySubjectNameViewExamManagement">
@@ -210,14 +210,19 @@
         </constraints>
         <properties/>
       </component>
-      <component id="a93e0" class="javax.swing.JTable" binding="tableViewExamManagement">
+      <scrollpane id="4d876">
         <constraints>
-          <grid row="2" column="4" row-span="8" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
+          <grid row="2" column="4" row-span="8" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
-      </component>
+        <border type="none"/>
+        <children>
+          <component id="a93e0" class="javax.swing.JTable" binding="tableViewExamManagement">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>

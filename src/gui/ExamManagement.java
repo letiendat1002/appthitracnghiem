@@ -29,4 +29,9 @@ public class ExamManagement {
     private JLabel labelHardAmountViewExamManagement;
     private JLabel labelFindByExamIDViewExamManagement;
     private JLabel labelFindBySubjectNameViewExamManagement;
+    private JPanel panelViewExamManagement;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
