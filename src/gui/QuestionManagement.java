@@ -3,7 +3,7 @@ package gui;
 import javax.swing.*;
 
 public class QuestionManagement {
-    private JPanel panel1;
+    private JPanel panelViewQuestionManagement;
     private JTextField textfieldSubjectIDViewQuestionManagement;
     private JTextField textfieldQuestionContentViewQuestionManagement;
     private JButton buttonAddViewQuestionManagement;
@@ -12,7 +12,6 @@ public class QuestionManagement {
     private JTable tableViewQuestionManagement;
     private JButton buttonQuestionAnswerViewQuestionMangagement;
     private JButton buttonBackViewQuestionManagement;
-    private JComboBox comboboxLevelViewQuestionManagement;
 
     private JTextField textfieldFindByQuestionIDViewQuestionManagement;
     private JTextField textfieldFindBySubjectNameViewQuestionManagement;
@@ -22,4 +21,9 @@ public class QuestionManagement {
     private JLabel labelSubjectIDViewQuestionManagement;
     private JLabel labelQuestionContentViewQuestionManagement;
     private JLabel labelLevelViewQuestionManagenment;
+    private JComboBox comboboxLevelViewQuestionManagement;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
