@@ -1,37 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.TakeExamAttendee">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" default-binding="true" layout-manager="GridLayoutManager" row-count="8" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="715" height="464"/>
     </constraints>
-    <properties/>
+    <properties>
+      <preferredSize width="600" height="300"/>
+    </properties>
     <border type="none"/>
     <children>
-      <component id="e9495" class="javax.swing.JLabel">
+      <hspacer id="845fb">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Label"/>
-        </properties>
-      </component>
-      <hspacer id="56cd2">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="1" row-span="2" col-span="4" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <vspacer id="f44a4">
+      <component id="8d917" class="javax.swing.JLabel" binding="labelRoomTitleViewTakeExamAttendee">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
         </constraints>
-      </vspacer>
-      <component id="47afa" class="javax.swing.JLabel">
+        <properties>
+          <text value="Tiêu đề"/>
+        </properties>
+      </component>
+      <component id="f4501" class="javax.swing.JLabel" binding="labelRoomIDViewTakeExamAttendee">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Mã phòng thi :"/>
+        </properties>
+      </component>
+      <component id="db98b" class="javax.swing.JLabel" binding="labelTimeLimitViewTakeExamAttendee">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Tổng thời gian :"/>
+        </properties>
+      </component>
+      <component id="b58ce" class="javax.swing.JLabel" binding="labelTotalQuestionViewTakeExamAttendee">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Số câu :"/>
+        </properties>
+      </component>
+      <component id="8da77" class="javax.swing.JLabel" binding="labelTimeRemainingViewTakeExamAttendee">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Thời gian còn lại :"/>
+        </properties>
+      </component>
+      <component id="b67b9" class="javax.swing.JLabel" binding="labelCountDownClockViewTakeExamAttendee">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Đồng hồ"/>
+        </properties>
+      </component>
+      <component id="6939" class="javax.swing.JButton" binding="buttonStartViewTakeExamAttendee">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Bắt đầu làm bài"/>
+        </properties>
+      </component>
+      <component id="8ffe9" class="javax.swing.JButton" binding="buttonSubmitViewTakeExamAttendee">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nộp bài"/>
+        </properties>
+      </component>
+      <component id="2eb34" class="javax.swing.JButton" binding="buttonQuitViewTakeExamAttendee">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Thoát"/>
+        </properties>
+      </component>
+      <component id="7b81" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="dcf07" class="javax.swing.JLabel" binding="labelDataTotalQuestionViewTakeExamAttendee">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Unknown"/>
+        </properties>
+      </component>
+      <component id="772aa" class="javax.swing.JLabel" binding="labelDataTimeLimitViewTakeExamAttendee">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Unknown"/>
+        </properties>
+      </component>
+      <component id="7a95b" class="javax.swing.JLabel" binding="labelDataRoomIDViewTakeExamAttendee">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Unknown"/>
+        </properties>
+      </component>
+      <component id="d672d" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="b48e7" class="javax.swing.JButton" binding="buttonNextViewTakeExamAttendee">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Câu trước"/>
+        </properties>
+      </component>
+      <component id="4a1d2" class="javax.swing.JButton" binding="buttonPrevViewTakeExamAttendee">
+        <constraints>
+          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Câu sau"/>
         </properties>
       </component>
     </children>
