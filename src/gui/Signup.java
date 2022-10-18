@@ -3,7 +3,7 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-public class viewSignup {
+public class Signup {
     private JTextField textfieldUserIDViewSignup;
     private JTextField textfieldFullnameViewSignup;
     private JTextField textfielDateOfBirthViewSignup;

@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.*;
 
-public class viewResultAttendee {
+public class ResultAttendee {
     private JTextField textfieldFindByRoomIDViewResultAttendee;
     private JTextField textfieldFindBySubjectNameViewResultAttendee;
     private JTable tableViewResultAttendee;

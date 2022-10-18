@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.*;
 
-public class viewGoToRoomAttendee {
+public class GoToRoomAttendee {
     private JTextField textfieldRoomIDViewGoToRoomAttendee;
     private JPasswordField passwordfieldPasswordViewGoToRoomAttendee;
     private JButton buttonGoToRoomViewGoToRoomAttendee;

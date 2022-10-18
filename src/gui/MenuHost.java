@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.*;
 
-public class viewMenuHost {
+public class MenuHost {
     private JButton buttonLogoutViewMenuHost;
     private JButton buttonSubjectManagementViewMenuHost;
     private JButton buttonRoomManagementViewMenuHost;

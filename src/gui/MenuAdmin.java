@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.*;
 
-public class viewMenuAdmin {
+public class MenuAdmin {
     private JButton buttonSubjectManagementViewMenuAdmin;
     private JButton buttonUserManagementViewMenuAdmin;
     private JButton buttonLogoutViewMenuAdmin;
