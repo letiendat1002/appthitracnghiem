@@ -10,4 +10,8 @@ public class GoToRoomAttendee {
     private JLabel labelRoomIDViewGoToRoomAttendee;
     private JLabel labelPasswordViewGoToRoomAttendee;
     private JPanel panelViewGoToRoomAttendee;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }

@@ -12,10 +12,10 @@
     <children>
       <component id="84c18" class="javax.swing.JLabel" binding="labelRoomIDViewGoToRoomAttendee">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="1" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Nhập mã phòng :"/>
+          <text value="Nhập mã phòng:"/>
         </properties>
       </component>
       <component id="2abef" class="javax.swing.JTextField" binding="textfieldRoomIDViewGoToRoomAttendee">
@@ -28,10 +28,10 @@
       </component>
       <component id="7b0c3" class="javax.swing.JLabel" binding="labelPasswordViewGoToRoomAttendee">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="2" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Mật khẩu :"/>
+          <text value="Mật khẩu:"/>
         </properties>
       </component>
       <component id="b6369" class="javax.swing.JPasswordField" binding="passwordfieldPasswordViewGoToRoomAttendee">
