@@ -11,4 +11,8 @@ public class ResultAttendee {
     private JLabel labelFindByRoomIDViewResultAttendee;
     private JLabel labelFindBySubjectNameViewResultAttendee;
     private JPanel panelViewResultAttendee;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
