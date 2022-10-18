@@ -4,10 +4,10 @@ import javax.swing.*;
 
 public class RoomResultSummary {
 
-    private JPanel panel1;
-    private JTextField textfieldFindByUserIDViewRoomResultSummary;
+    private JPanel panelViewRoomResultSummary;
+    private JTextField textfieldFindBySubjectNameViewRoomResultSummary;
     private JTextField textfieldFindByRoomIDViewRoomResultSummary;
-    private JTextField Textfield3;
+    private JTextField textfieldFindByUserIDViewRoomResultSummary;
     private JTable tableViewRoomResultSummary;
     private JButton buttonRefreshViewRoomResultSummary;
     private JButton buttonBackViewRoomResultSummary;
@@ -15,4 +15,7 @@ public class RoomResultSummary {
     private JLabel labelFindBySubjectNameViewRoomResultSummary;
     private JLabel labelFindByUserIDViewRoomResultSummary;
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
