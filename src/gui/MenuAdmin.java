@@ -10,4 +10,8 @@ public class MenuAdmin {
     private JButton buttonQuestionManagementViewMenuAdmin;
     private JButton buttonExamManagementViewMenuAdmin;
     private JPanel panelViewMenuAdmin;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
