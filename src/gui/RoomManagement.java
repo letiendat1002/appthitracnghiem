@@ -6,7 +6,7 @@ public class RoomManagement {
     private JTextField textfiledExamIDViewRoomManagement;
     private JTextField textfieldRoomTitleViewRoomManaGement;
     private JTextField textfieldTimeLimitViewRoomManagement;
-    private JPasswordField passwordfieldRoomPasViewRoomManagement;
+    private JPasswordField passwordfieldRoomPasswordViewRoomManagement;
     private JRadioButton radiobuttonOpenViewRoomManagement;
     private JButton buttonAddViewRoomManagement;
     private JButton buttonUpdateViewRoomManagement;
@@ -15,7 +15,7 @@ public class RoomManagement {
     private JButton buttonRefreshViewRoomManagement;
     private JButton buttonBackViewRoomManagement;
     private JTable tableViewRoomManagement;
-    private JRadioButton buttonCloseViewRoomManagement;
+    private JRadioButton radiobuttonCloseViewRoomManagement;
     private JTextField textfieldFindByRoomIDViewRoomManagement;
     private JTextField textfieldFindBySubjectNameViewRoomManagement;
     private JLabel labelFindByRoomIDViewRoomManagement;
@@ -26,6 +26,6 @@ public class RoomManagement {
     private JLabel labelRoomPasswordViewRoomManagement;
     private JLabel labelRoomStatusViewRoomManagement;
     private JLabel labelRoomContentViewRoomManagement;
-    private JPanel radiobuttonCloseViewRoomManagement;
-    private JTextArea textareaContentViewRoomManagement;
+    private JPanel panelViewRoomManagement;
+    private JTextArea textareaRoomContentViewRoomManagement;
 }
