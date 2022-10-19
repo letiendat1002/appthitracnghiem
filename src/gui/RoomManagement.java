@@ -28,4 +28,8 @@ public class RoomManagement {
     private JLabel labelRoomContentViewRoomManagement;
     private JPanel panelViewRoomManagement;
     private JTextArea textareaRoomContentViewRoomManagement;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }

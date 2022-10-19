@@ -16,4 +16,8 @@ public class SubjectManagement {
     private JLabel labelFindBySubjectIDViewSubjectManagement;
     private JLabel labelFindBySubjectNameViewSubjectManagement;
     private JPanel panelViewSubjectManagement;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
