@@ -15,5 +15,5 @@ public class SubjectManagement {
     private JLabel labelSubjectNameViewSubjectManagement;
     private JLabel labelFindBySubjectIDViewSubjectManagement;
     private JLabel labelFindBySubjectNameViewSubjectManagement;
-    private JPanel table;
+    private JPanel panelViewSubjectManagement;
 }
