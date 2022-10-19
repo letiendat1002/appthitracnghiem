@@ -5,7 +5,7 @@ import javax.swing.*;
 public class UserManagement extends JFrame{
     private JTextField textfieldUserIDViewUserManagement;
     private JTextField textfieldFullnameViewUserManagement;
-    private JTextField textfieldBirthDateViewUserManagement;
+    private JTextField textfieldBirthdayViewUserManagement;
     private JTextField textfieldEmailViewUserManagement;
     private JRadioButton radiobuttonHostViewUserManagement;
     private JRadioButton radiobuttonAttendeeViewUserManagement;
@@ -13,17 +13,18 @@ public class UserManagement extends JFrame{
     private JButton buttonRefreshViewUserManagement;
     private JButton buttonBackViewUserManagement;
     private JTextField textfieldFindByUserIDViewUserManagement;
-    private JTextField textFullnameViewUserManagement;
+    private JTextField textfieldFindByFullnameViewUserManagement;
     private JTable tableViewUserManagement;
     private JLabel labelFullNameViewUserManagement;
     private JLabel labelUserIDViewUserManagement;
-    private JLabel labelBirthDateViewUserManagement;
+    private JLabel labelBirthdayViewUserManagement;
     private JLabel labelEmailViewUserManagement;
     private JLabel labelUserRoleViewUserManagement;
     private JButton buttonUpdateViewUserManagement;
     private JButton buttonDeleteViewUserManagement;
     private JLabel labelFindByUserIDViewUserUserManagent;
     private JLabel labelFindByFullNameViewUserManagement;
+    private JPanel panelViewUserManagement;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
