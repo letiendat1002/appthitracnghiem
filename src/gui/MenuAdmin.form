@@ -10,17 +10,9 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="f6131" class="javax.swing.JButton" binding="buttonSubjectManagementViewMenuAdmin">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Quản lý môn thi"/>
-        </properties>
-      </component>
       <component id="319fc" class="javax.swing.JButton" binding="buttonUserManagementViewMenuAdmin">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Quản lý User"/>
@@ -28,35 +20,47 @@
       </component>
       <component id="10626" class="javax.swing.JButton" binding="buttonLogoutViewMenuAdmin">
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Đăng xuất"/>
         </properties>
       </component>
-      <component id="49858" class="javax.swing.JButton" binding="buttonRomManagementViewMenuAdmin">
+      <component id="83d0a" class="javax.swing.JButton" binding="buttonExamManagementViewMenuAdmin">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Quản lý phòng thi"/>
+          <text value="Quản lý đề thi"/>
         </properties>
       </component>
       <component id="cde79" class="javax.swing.JButton" binding="buttonQuestionManagementViewMenuAdmin">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Quản lý câu hỏi"/>
         </properties>
       </component>
-      <component id="83d0a" class="javax.swing.JButton" binding="buttonExamManagementViewMenuAdmin">
+      <component id="49858" class="javax.swing.JButton" binding="buttonRomManagementViewMenuAdmin">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Quản lý đề thi"/>
+          <text value="Quản lý phòng thi"/>
         </properties>
+      </component>
+      <component id="59179" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="249ca" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>

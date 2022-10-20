@@ -10,7 +10,6 @@ public class QuestionAnswerManagement extends JFrame {
     private JButton buttonAddViewQuestionAnswerManagement;
     private JButton buttonUpdateViewQuestionAnswerManagement;
     private JButton buttonDeleteViewQuestionAnswerManagement;
-    private JButton buttonRefreshViewQuestionAnswerManagement;
     private JButton buttonBackViewQuestionAnswerManagement;
     private JTextField textfieldQuestionIDViewQuestionAnswerManagement;
     private JTextField textfieldAnswerContentViewQuestionAnswerManagement;
