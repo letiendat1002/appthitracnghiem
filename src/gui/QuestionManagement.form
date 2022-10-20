@@ -61,14 +61,6 @@
           <text value="Cập nhật"/>
         </properties>
       </component>
-      <component id="a9cfc" class="javax.swing.JButton" binding="buttonRefreshViewQuestionManagement">
-        <constraints>
-          <grid row="4" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Làm Mới"/>
-        </properties>
-      </component>
       <component id="196bb" class="javax.swing.JLabel" binding="labelFindByQuestionIDViewQuestionManagement">
         <constraints>
           <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>

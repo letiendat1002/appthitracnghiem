@@ -15,7 +15,6 @@ public class QuestionManagement {
 
     private JTextField textfieldFindByQuestionIDViewQuestionManagement;
     private JTextField textfieldFindByExamIDViewQuestionManagement;
-    private JButton buttonRefreshViewQuestionManagement;
     private JLabel labelFindByQuestionIDViewQuestionManagement;
     private JLabel labelFindByExamIDViewQuestionManagement;
     private JLabel labelExamIDViewQuestionManagement;

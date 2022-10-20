@@ -12,7 +12,6 @@ public class RoomManagement {
     private JButton buttonUpdateViewRoomManagement;
     private JButton buttonDeleteViewRoomManagement;
     private JButton buttonRoomResultSummaryViewRoomManagement;
-    private JButton buttonRefreshViewRoomManagement;
     private JButton buttonBackViewRoomManagement;
     private JTable tableViewRoomManagement;
     private JRadioButton radiobuttonCloseViewRoomManagement;
@@ -24,6 +23,8 @@ public class RoomManagement {
     private JLabel labelRoomPasswordViewRoomManagement;
     private JLabel labelRoomStatusViewRoomManagement;
     private JPanel panelViewRoomManagement;
+    private JLabel labelFindByExamIDViewRoomManagement;
+    private JTextField textfieldFindByExamIDViewRoomManagement;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here

@@ -96,22 +96,6 @@
           <text value="Xóa"/>
         </properties>
       </component>
-      <component id="5a9d1" class="javax.swing.JButton" binding="buttonRefreshViewUserManagement">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Làm mới"/>
-        </properties>
-      </component>
-      <component id="458cb" class="javax.swing.JButton" binding="buttonBackViewUserManagement">
-        <constraints>
-          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Quay lại"/>
-        </properties>
-      </component>
       <scrollpane id="14683">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="9" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -129,38 +113,6 @@
           </component>
         </children>
       </scrollpane>
-      <component id="7b38a" class="javax.swing.JLabel" binding="labelFindByFullNameViewUserManagement">
-        <constraints>
-          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Tìm theo Họ tên:"/>
-        </properties>
-      </component>
-      <component id="cf6c0" class="javax.swing.JLabel" binding="labelFindByUserIDViewUserUserManagent">
-        <constraints>
-          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Tìm theo UserID:"/>
-        </properties>
-      </component>
-      <component id="4c88c" class="javax.swing.JTextField" binding="textfieldFindByFullnameViewUserManagement">
-        <constraints>
-          <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="10bc7" class="javax.swing.JTextField" binding="textfieldFindByUserIDViewUserManagement">
-        <constraints>
-          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
       <component id="583f5" class="javax.swing.JToolBar$Separator">
         <constraints>
           <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -185,6 +137,52 @@
         </constraints>
         <properties>
           <text value="Attendee"/>
+        </properties>
+      </component>
+      <component id="cf6c0" class="javax.swing.JLabel" binding="labelFindByUserIDViewUserUserManagent">
+        <constraints>
+          <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Tìm theo UserID:"/>
+        </properties>
+      </component>
+      <component id="7b38a" class="javax.swing.JLabel" binding="labelFindByFullNameViewUserManagement">
+        <constraints>
+          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Tìm theo Họ tên:"/>
+        </properties>
+      </component>
+      <component id="10bc7" class="javax.swing.JTextField" binding="textfieldFindByUserIDViewUserManagement">
+        <constraints>
+          <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="4c88c" class="javax.swing.JTextField" binding="textfieldFindByFullnameViewUserManagement">
+        <constraints>
+          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="a2fd4" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="458cb" class="javax.swing.JButton" binding="buttonBackViewUserManagement">
+        <constraints>
+          <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Quay lại"/>
         </properties>
       </component>
     </children>

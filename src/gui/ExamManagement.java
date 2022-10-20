@@ -10,7 +10,6 @@ public class ExamManagement {
     private JButton buttonAddViewExamManagement;
     private JButton buttonUpdateViewExamManagement;
     private JButton buttonDeleteViewExamManagement;
-    private JButton buttonRefreshViewExamManagement;
     private JButton buttonBackViewExamManagement;
     private JTextField textfieldFindByExamIDViewExamManagement;
     private JTextField textfieldFindBySubjectNameViewExamManagement;

@@ -9,7 +9,6 @@ public class UserManagement extends JFrame{
     private JRadioButton radiobuttonHostViewUserManagement;
     private JRadioButton radiobuttonAttendeeViewUserManagement;
     private JButton buttonAddViewUserManagement;
-    private JButton buttonRefreshViewUserManagement;
     private JButton buttonBackViewUserManagement;
     private JTextField textfieldFindByUserIDViewUserManagement;
     private JTextField textfieldFindByFullnameViewUserManagement;
