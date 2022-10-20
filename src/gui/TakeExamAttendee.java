@@ -20,6 +20,7 @@ public class TakeExamAttendee {
     private JPanel panelTakeExamViewTakeExamAttendee;
     private JLabel labelCurrentQuestionViewTakeExamAttendee;
     private JLabel labelQuestionContentViewTakeExamAttendee;
+    private JPanel panelAnswerGroupViewTakeExamAttendee;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
