@@ -1,7 +1,6 @@
-package gui;
+package Gui;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Signup {
     private JTextField textfieldUserIDViewSignup;
