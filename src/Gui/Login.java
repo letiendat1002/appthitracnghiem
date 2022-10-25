@@ -1,6 +1,9 @@
 package Gui;
 
+import DAO.UserDAO;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class Login extends JFrame {
 
@@ -29,17 +32,43 @@ public class Login extends JFrame {
         this.setVisible(true);
     }
 
+    public static void main(String[] args) {
+        EventQueue.invokeLater(Login::new);
+    }
+
     private void addActionEvent() {
         buttonLoginViewLogin.addActionListener(event -> {
             try {
-                String username = textfieldUsernameViewLogin.getText();
-                String password = String.valueOf(passwordfieldPasswordViewLogin.getPassword());
-                if(username.isEmpty() || password.isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Tên đăng nhập hoặc mật khẩu không được bỏ trống!", "Cảnh Báo Đăng Nhập", JOptionPane.WARNING_MESSAGE);
-                }
-                else if (username.equals(username_admin) && password.equals(password_admin)) {
+                var username = textfieldUsernameViewLogin.getText();
+                var password = String.valueOf(passwordfieldPasswordViewLogin.getPassword());
+                var password_encrypted = UserDAO.encryptPassword(password);
+                var user = UserDAO.selectByAccount(username, password_encrypted);
+                if (username.isEmpty() || password.isEmpty()) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Tên đăng nhập hoặc mật khẩu không được bỏ trống!",
+                            "Cảnh Báo Đăng Nhập",
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                } else if (username.equals(username_admin) && password.equals(password_admin)) {
                     this.dispose();
                     new MenuAdmin();
+                } else if (user != null) {
+                    this.dispose();
+                    var checkHost = user.isHost();
+                    if (checkHost) {
+                        new MenuHost();
+                    } else {
+                        new MenuAttendee();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Sai tên đăng nhập hoặc mật khẩu",
+                            "Cảnh Báo Đăng Nhập",
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                    passwordfieldPasswordViewLogin.setText("");
                 }
             } catch (NullPointerException e) {
                 e.printStackTrace();
@@ -61,7 +90,7 @@ public class Login extends JFrame {
         });
 
         buttonQuitViewLogin.addActionListener(event -> {
-            int selection = JOptionPane.showConfirmDialog(
+            var selection = JOptionPane.showConfirmDialog(
                     this,
                     "Bạn thật sự muốn thoát?",
                     "Thoát Ứng Dụng",
