@@ -38,15 +38,10 @@ public class UserManagement extends JFrame {
     private JCheckBox checkboxChangePasswordViewUserManagement;
     private ButtonGroup buttonGroupViewUserManagement;
     private DefaultTableModel columnModel;
-
     private DefaultTableModel rowModel;
-
     private TableRowSorter<TableModel> rowSorter = null;
-
     private ArrayList<User> list;
-
     private String passwordBeforeChanged;
-
     private User chosenUser = null;
 
     public UserManagement(User user) {
@@ -133,7 +128,7 @@ public class UserManagement extends JFrame {
                 JOptionPane.showMessageDialog(
                         this,
                         "Không thể thêm tài khoản với UserID này. Xin hãy sử dụng UserID khác!",
-                        "Thất Bại",
+                        "Thêm",
                         JOptionPane.ERROR_MESSAGE
                 );
                 textfieldUserIDViewUserManagement.setText("");
@@ -145,7 +140,7 @@ public class UserManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thành công.",
-                            "Thêm Người Dùng",
+                            "Thêm",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -153,7 +148,7 @@ public class UserManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thất bại. Xin hãy thử lại!",
-                            "Thất Bại",
+                            "Thêm",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -162,7 +157,7 @@ public class UserManagement extends JFrame {
                 JOptionPane.showMessageDialog(
                         this,
                         "UserID đã tồn tại, thử lại với UserID khác!",
-                        "Cảnh Báo Thêm Nguời Dùng",
+                        "Cảnh Báo",
                         JOptionPane.ERROR_MESSAGE
                 );
             }
@@ -197,7 +192,7 @@ public class UserManagement extends JFrame {
                             JOptionPane.showMessageDialog(
                                     this,
                                     "Cập nhật thành công.",
-                                    "Cập Nhập Người Dùng",
+                                    "Cập Nhật",
                                     JOptionPane.INFORMATION_MESSAGE
                             );
                             fillDataToTable();
@@ -205,7 +200,7 @@ public class UserManagement extends JFrame {
                             JOptionPane.showMessageDialog(
                                     this,
                                     "Cập nhật thất bại. Xin hãy thử lại!",
-                                    "Thất Bại",
+                                    "Cập Nhật",
                                     JOptionPane.ERROR_MESSAGE
                             );
                         }
@@ -214,7 +209,7 @@ public class UserManagement extends JFrame {
                         JOptionPane.showMessageDialog(
                                 this,
                                 "Cập nhật thành công.",
-                                "Cập Nhập Người Dùng",
+                                "Cập Nhật",
                                 JOptionPane.INFORMATION_MESSAGE
                         );
                         resetInputField();
@@ -224,34 +219,34 @@ public class UserManagement extends JFrame {
         });
 
         buttonDeleteViewUserManagement.addActionListener(event -> {
-           if (chosenUser != null){
-                var isSuccess = UserDAO.delete(chosenUser.getUser_id());
-               if (isSuccess) {
-                   JOptionPane.showMessageDialog(
-                           this,
-                           "Xoá thành công.",
-                           "Xoá Người Dùng",
-                           JOptionPane.INFORMATION_MESSAGE
-                   );
-                   fillDataToTable();
-               } else {
-                   JOptionPane.showMessageDialog(
-                           this,
-                           "Xoá thất bại. Xin hãy thử lại!",
-                           "Thất Bại",
-                           JOptionPane.ERROR_MESSAGE
-                   );
-               }
-               resetInputField();
-           }
-           else{
-               JOptionPane.showMessageDialog(
-                       this,
-                       "Hãy chọn tài khoản cần xoá để tiến hành xoá!",
-                       "Cảnh Báo",
-                       JOptionPane.WARNING_MESSAGE
-               );
-           }
+            var userID = textfieldUserIDViewUserManagement.getText().trim();
+            if (!userID.isEmpty()) {
+                var isSuccess = UserDAO.delete(userID);
+                if (isSuccess) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Xoá thành công.",
+                            "Xoá",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                    fillDataToTable();
+                } else {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Xoá thất bại. Xin hãy thử lại!",
+                            "Xoá",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                }
+                resetInputField();
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Hãy chọn tài khoản cần xoá để tiến hành xoá!",
+                        "Cảnh Báo",
+                        JOptionPane.WARNING_MESSAGE
+                );
+            }
         });
 
         buttonRefreshViewUserManagement.addActionListener(event -> {
@@ -263,12 +258,9 @@ public class UserManagement extends JFrame {
             if (loginUser.getUser_id().equals("admin")) {
                 this.dispose();
                 new MenuAdmin(loginUser);
-            } else if (loginUser.isHost()) {
-                this.dispose();
-                new MenuHost(loginUser);
             } else {
                 this.dispose();
-                new MenuAttendee(loginUser);
+                new MenuHost(loginUser);
             }
         });
     }
@@ -276,9 +268,12 @@ public class UserManagement extends JFrame {
     private void fillDataToTable() {
         list = UserDAO.selectAll();
         rowModel.setRowCount(0);
-        for (User user : list) {
+        for (var user : list) {
             rowModel.addRow(new Object[]{
-                    user.getUser_id(), user.getFull_name(), user.getPassword(), user.isHost()
+                    user.getUser_id(),
+                    user.getFull_name(),
+                    user.getPassword(),
+                    user.isHost()
             });
         }
     }
@@ -292,8 +287,8 @@ public class UserManagement extends JFrame {
                 .addDocumentListener(new DocumentListener() {
                     @Override
                     public void insertUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewUserManagement.getText();
-                        if (text.trim().length() != 0) {
+                        var text = textfieldFindViewUserManagement.getText().trim();
+                        if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
                             rowSorter.setRowFilter(null);
@@ -302,8 +297,8 @@ public class UserManagement extends JFrame {
 
                     @Override
                     public void removeUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewUserManagement.getText();
-                        if (text.trim().length() != 0) {
+                        var text = textfieldFindViewUserManagement.getText().trim();
+                        if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
                             rowSorter.setRowFilter(null);
