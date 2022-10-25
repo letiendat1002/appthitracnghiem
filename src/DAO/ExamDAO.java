@@ -2,12 +2,15 @@ package DAO;
 
 import JDBCHelper.DatabaseConnection;
 import Model.Exam;
+import Model.User;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ExamDAO {
-    public static ArrayList<Exam> selectAll() {
+    public static ArrayList<Exam> selectAll(){
         var list = new ArrayList<Exam>();
         var query = "select * from exams";
         try (var statement = DatabaseConnection.getConnection().createStatement()) {
@@ -29,11 +32,11 @@ public class ExamDAO {
         return list;
     }
 
-    public static Exam selectByExamID(long examID) {
+    public static Exam selectByExamID(String examID){
         var exam = new Exam();
         var query = "select * from exams where exam_id=?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
-            ps.setLong(1, examID);
+            ps.setString(1, examID);
             var resultSet = ps.executeQuery();
             if (resultSet.next()) {
                 exam.setExam_id(resultSet.getLong("exam_id"));
@@ -49,7 +52,7 @@ public class ExamDAO {
         return null;
     }
 
-    public static boolean insert(Exam exam) {
+    public static boolean insert(Exam exam){
         var query = "insert into exams(subject,total_question,total_score,score_per_question) values(?,?,?,?)";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setString(1, exam.getSubject());
@@ -63,7 +66,7 @@ public class ExamDAO {
         }
     }
 
-    public static boolean update(Exam exam) {
+    public static boolean update(Exam exam){
         var query = "update exams set subject = ?, total_question = ?, total_score = ?, score_per_question = ? where exam_id = ?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setString(1, exam.getSubject());
@@ -78,7 +81,7 @@ public class ExamDAO {
         }
     }
 
-    public static boolean delete(long exam_id) {
+    public static boolean delete(long exam_id){
         var query = "delete from exams where exam_id = ?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, exam_id);
@@ -92,11 +95,11 @@ public class ExamDAO {
     public static void main(String[] args) {
         ArrayList<Exam> exams = ExamDAO.selectAll();
         System.out.println(exams.get(0).getExam_id());
-        Exam exam = ExamDAO.selectByExamID(1);
+        Exam exam = ExamDAO.selectByExamID("1");
         System.out.println(
                 (exam != null ? exam.getScore_per_question() : -1)
-                        + " "
-                        + (exam != null ? exam.getSubject() : "empty")
+                + " "
+                + (exam != null ? exam.getSubject() : "empty")
         );
 //        Exam exam1 = new Exam("Toán", 20 , 10, 10.0/20.0);
 //        System.out.println("Insert: " + ExamDAO.insert(exam1));

@@ -29,7 +29,7 @@ public class MenuHost extends JFrame{
     private void addActionEvent() {
         buttonExamManagementViewMenuHost.addActionListener(event -> {
            this.dispose();
-           new ExamManagement(loginUser);
+           new ExamManagement();
         });
         buttonQuestionManagementViewMenuHost.addActionListener(event -> {
            this.dispose();
