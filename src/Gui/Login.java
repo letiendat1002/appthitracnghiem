@@ -7,10 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Login extends JFrame {
-
-    private static final String username_admin = "admin";
-    private static final String password_admin = "admin";
-
     private JPanel panelViewLogin;
     private JLabel labelUsernameViewLogin;
     private JLabel labelPasswordViewLogin;
@@ -21,6 +17,9 @@ public class Login extends JFrame {
     private JButton buttonSignupViewLogin;
     private JLabel labelSignupViewLogin;
     private JCheckBox checkboxShowPasswordViewLogin;
+
+    private static final String username_admin = "admin";
+    private static final String password_admin = "admin";
 
     public Login() {
         addActionEvent();
@@ -52,7 +51,7 @@ public class Login extends JFrame {
                             JOptionPane.WARNING_MESSAGE
                     );
                 } else if (username.equals(username_admin) && password.equals(password_admin)) {
-                    User admin = new User("admin", "admin", "admin", true);
+                    var admin = new User("admin", "admin", "admin", true);
                     this.dispose();
                     new MenuAdmin(admin);
                 } else if (user != null) {
