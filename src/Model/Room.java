@@ -8,6 +8,9 @@ public class Room {
     private String password;
     private boolean is_available;
 
+    public Room() {
+    }
+
     public Room(long room_id, long exam_id, String title, int time_limit, String password, boolean is_available) {
         this.room_id = room_id;
         this.exam_id = exam_id;

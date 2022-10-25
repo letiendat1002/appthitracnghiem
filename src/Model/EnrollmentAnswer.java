@@ -6,6 +6,9 @@ public class EnrollmentAnswer {
     private long question_id;
     private long question_answer_id;
 
+    public EnrollmentAnswer() {
+    }
+
     public EnrollmentAnswer(long enrollment_answer_id, long enrollment_id, long question_id, long question_answer_id) {
         this.enrollment_answer_id = enrollment_answer_id;
         this.enrollment_id = enrollment_id;
