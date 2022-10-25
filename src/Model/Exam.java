@@ -10,13 +10,6 @@ public class Exam {
     public Exam() {
     }
 
-    public Exam(String subject, int total_question, int total_score, double score_per_question) {
-        this.subject = subject;
-        this.total_question = total_question;
-        this.total_score = total_score;
-        this.score_per_question = score_per_question;
-    }
-
     public Exam(long exam_id, String subject, int total_question, int total_score, double score_per_question) {
         this.exam_id = exam_id;
         this.subject = subject;

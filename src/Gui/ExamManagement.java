@@ -11,15 +11,16 @@ public class ExamManagement {
     private JButton buttonUpdateViewExamManagement;
     private JButton buttonDeleteViewExamManagement;
     private JButton buttonBackViewExamManagement;
-    private JTextField textfieldFindViewExamManagement;
+    private JTextField textfieldFindByExamIDViewExamManagement;
+    private JTextField textfieldFindBySubjectNameViewExamManagement;
     private JTable tableViewExamManagement;
     private JLabel labelSubjectIDViewExamManagement;
     private JLabel labelTotalQuestionViewExamManagement;
     private JLabel labelTotalScoreViewExamManagement;
     private JLabel labelScorePerQuestionViewExamManagement;
-    private JLabel labelFindViewExamManagement;
+    private JLabel labelFindByExamIDViewExamManagement;
+    private JLabel labelFindBySubjectNameViewExamManagement;
     private JPanel panelViewExamManagement;
-    private JButton buttonRefreshViewExamManagement;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
