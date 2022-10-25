@@ -135,9 +135,7 @@
         <constraints>
           <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <text value="Quay Lại"/>
-        </properties>
+        <properties/>
       </component>
       <component id="663a5" class="javax.swing.JButton" binding="buttonRefreshViewExamManagement">
         <constraints>
@@ -162,7 +160,7 @@
           </grid>
         </constraints>
         <properties>
-          <font size="16" style="1"/>
+          <text value="Tìm kiếm"/>
         </properties>
       </component>
       <component id="19d6a" class="javax.swing.JLabel" binding="labelExamIDViewExamManagement">
