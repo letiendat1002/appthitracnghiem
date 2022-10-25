@@ -6,6 +6,9 @@ public class User {
     private String password_hash;
     private boolean is_host;
 
+    public User() {
+    }
+
     public User(String user_id, String full_name, String password_hash, boolean is_host) {
         this.user_id = user_id;
         this.full_name = full_name;
@@ -29,11 +32,11 @@ public class User {
         this.full_name = full_name;
     }
 
-    public String getPassword_hash() {
+    public String getPassword() {
         return password_hash;
     }
 
-    public void setPassword_hash(String password_hash) {
+    public void setPassword(String password_hash) {
         this.password_hash = password_hash;
     }
 

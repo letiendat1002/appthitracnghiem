@@ -6,6 +6,9 @@ public class Enrollment {
     private long room_id;
     private double score;
 
+    public Enrollment() {
+    }
+
     public Enrollment(long enrollment_id, String user_id, long room_id, double score) {
         this.enrollment_id = enrollment_id;
         this.user_id = user_id;

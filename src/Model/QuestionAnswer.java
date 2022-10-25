@@ -6,6 +6,9 @@ public class QuestionAnswer {
     private String content;
     private boolean is_correct;
 
+    public QuestionAnswer() {
+    }
+
     public QuestionAnswer(long question_answer_id, long question_id, String content, boolean is_correct) {
         this.question_answer_id = question_answer_id;
         this.question_id = question_id;

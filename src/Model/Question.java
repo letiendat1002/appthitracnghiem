@@ -6,6 +6,9 @@ public class Question {
     private int level;
     private String content;
 
+    public Question() {
+    }
+
     public Question(long question_id, long exam_id, int level, String content) {
         this.question_id = question_id;
         this.exam_id = exam_id;
