@@ -1,5 +1,7 @@
 package Gui;
 
+import Model.User;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,7 +13,10 @@ public class MenuAdmin extends JFrame{
     private JButton buttonExamManagementViewMenuAdmin;
     private JPanel panelViewMenuAdmin;
 
-    public MenuAdmin(){
+    private final User loginUser;
+
+    public MenuAdmin(User user){
+        this.loginUser = user;
         addActionEvent();
         this.setTitle("Menu Admin");
         this.setResizable(false);
@@ -25,7 +30,7 @@ public class MenuAdmin extends JFrame{
     private void addActionEvent() {
         buttonUserManagementViewMenuAdmin.addActionListener(event -> {
            this.dispose();
-           new UserManagement();
+           new UserManagement(loginUser);
         });
         buttonExamManagementViewMenuAdmin.addActionListener(event -> {
             this.dispose();
@@ -50,6 +55,7 @@ public class MenuAdmin extends JFrame{
     }
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(MenuAdmin::new);
+        User admin = new User("admin", "admin", "admin", true);
+        EventQueue.invokeLater(() -> new MenuAdmin(admin));
     }
 }

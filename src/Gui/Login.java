@@ -1,6 +1,7 @@
 package Gui;
 
 import DAO.UserDAO;
+import Model.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,8 +40,8 @@ public class Login extends JFrame {
     private void addActionEvent() {
         buttonLoginViewLogin.addActionListener(event -> {
             try {
-                var username = textfieldUsernameViewLogin.getText();
-                var password = String.valueOf(passwordfieldPasswordViewLogin.getPassword());
+                var username = textfieldUsernameViewLogin.getText().trim();
+                var password = String.valueOf(passwordfieldPasswordViewLogin.getPassword()).trim();
                 var password_encrypted = UserDAO.encryptPassword(password);
                 var user = UserDAO.selectByAccount(username, password_encrypted);
                 if (username.isEmpty() || password.isEmpty()) {
@@ -51,15 +52,16 @@ public class Login extends JFrame {
                             JOptionPane.WARNING_MESSAGE
                     );
                 } else if (username.equals(username_admin) && password.equals(password_admin)) {
+                    User admin = new User("admin", "admin", "admin", true);
                     this.dispose();
-                    new MenuAdmin();
+                    new MenuAdmin(admin);
                 } else if (user != null) {
                     this.dispose();
                     var checkHost = user.isHost();
                     if (checkHost) {
-                        new MenuHost();
+                        new MenuHost(user);
                     } else {
-                        new MenuAttendee();
+                        new MenuAttendee(user);
                     }
                 } else {
                     JOptionPane.showMessageDialog(
