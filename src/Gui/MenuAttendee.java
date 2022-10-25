@@ -1,9 +1,9 @@
 package Gui;
 
+import Model.User;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MenuAttendee extends JFrame{
     private JButton buttonGoToRoomAttendeeViewMenuAttendee;
@@ -11,7 +11,10 @@ public class MenuAttendee extends JFrame{
     private JButton buttonLogoutViewMenuAttendee;
     private JPanel panelViewMenuAttendee;
 
-    public MenuAttendee(){
+    private final User loginUser;
+
+    public MenuAttendee(User user){
+        this.loginUser = user;
         addActionEvent();
         this.setTitle("Menu Attendee");
         this.setResizable(false);
@@ -42,6 +45,12 @@ public class MenuAttendee extends JFrame{
     }
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(MenuAttendee::new);
+        User attendee = new User(
+                "attendee",
+                "attendee",
+                "attendee",
+                false
+        );
+        EventQueue.invokeLater(() -> new MenuAttendee(attendee));
     }
 }

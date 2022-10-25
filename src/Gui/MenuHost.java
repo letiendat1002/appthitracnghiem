@@ -1,9 +1,9 @@
 package Gui;
 
+import Model.User;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MenuHost extends JFrame{
     private JButton buttonLogoutViewMenuHost;
@@ -12,7 +12,10 @@ public class MenuHost extends JFrame{
     private JButton buttonQuestionManagementViewMenuHost;
     private JPanel panelViewMenuHost;
 
-    public MenuHost(){
+    private final User loginUser;
+
+    public MenuHost(User user){
+        this.loginUser = user;
         addActionEvent();
         this.setTitle("Menu Host");
         this.setResizable(false);
@@ -47,6 +50,12 @@ public class MenuHost extends JFrame{
     }
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(MenuHost::new);
+        User host = new User(
+                "host",
+                "host",
+                "host",
+                true
+        );
+        EventQueue.invokeLater(() -> new MenuHost(host));
     }
 }

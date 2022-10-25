@@ -133,13 +133,11 @@ public class UserDAO {
         }
     }
 
-    public static boolean update(User user, boolean passwordIsChanged) {
+    public static boolean update(User user) {
         String query = "update users set full_name = ?, password_hash = ?, is_host = ? where user_id = ?";
-        String userPassword = user.getPassword();
-        String passwordEncrypted = passwordIsChanged ? encryptPassword(userPassword) : userPassword;
         try (PreparedStatement ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setString(1, user.getFull_name());
-            ps.setString(2, passwordEncrypted);
+            ps.setString(2, user.getPassword());
             ps.setBoolean(3, user.isHost());
             ps.setString(4, user.getUser_id());
             int count = ps.executeUpdate();

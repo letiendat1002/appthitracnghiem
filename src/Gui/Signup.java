@@ -36,22 +36,22 @@ public class Signup extends JFrame {
 
     private void addActionEvent() {
         buttonSignupViewSignup.addActionListener(event -> {
-            var userID = textfieldUserIDViewSignup.getText();
-            var fullName = textfieldFullnameViewSignup.getText();
-            var password = String.valueOf(passwordfieldPasswordViewSignup.getPassword());
-            var passwordAgain = String.valueOf(passwordfieldPasswordAgainViewSignup.getPassword());
+            var userID = textfieldUserIDViewSignup.getText().trim();
+            var fullName = textfieldFullnameViewSignup.getText().trim();
+            var password = String.valueOf(passwordfieldPasswordViewSignup.getPassword()).trim();
+            var passwordAgain = String.valueOf(passwordfieldPasswordAgainViewSignup.getPassword()).trim();
             if (userID.isEmpty() || fullName.isEmpty() || password.isEmpty() || passwordAgain.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         this,
                         "Các trường thông tin không được bỏ trống!",
-                        "Cảnh Báo Đăng Ký",
+                        "Cảnh Báo",
                         JOptionPane.WARNING_MESSAGE
                 );
             } else if (userID.equals("admin")) {
                 JOptionPane.showMessageDialog(
                         this,
                         "Không thể tạo tài khoản với UserID này. Xin hãy sử dụng UserID khác!",
-                        "Đăng ký",
+                        "Thất Bại",
                         JOptionPane.ERROR_MESSAGE
                 );
                 textfieldUserIDViewSignup.setText("");
@@ -71,7 +71,7 @@ public class Signup extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Đăng ký tài khoản thất bại. Xin hãy thử lại!",
-                            "Đăng ký",
+                            "Thất Bại",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -80,8 +80,8 @@ public class Signup extends JFrame {
                 JOptionPane.showMessageDialog(
                         this,
                         "UserID đã tồn tại, thử lại với UserID khác!",
-                        "Cảnh Báo Đăng Ký",
-                        JOptionPane.WARNING_MESSAGE
+                        "Thất Bại",
+                        JOptionPane.ERROR_MESSAGE
                 );
                 passwordfieldPasswordViewSignup.setText("");
                 passwordfieldPasswordAgainViewSignup.setText("");
