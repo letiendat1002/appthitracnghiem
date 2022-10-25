@@ -7,6 +7,9 @@ public class Exam {
     private int total_score;
     private double score_per_question;
 
+    public Exam() {
+    }
+
     public Exam(long exam_id, String subject, int total_question, int total_score, double score_per_question) {
         this.exam_id = exam_id;
         this.subject = subject;
