@@ -1,5 +1,7 @@
 package Gui;
 
+import Model.User;
+
 import javax.swing.*;
 
 public class QuestionAnswerManagement extends JFrame {
@@ -23,13 +25,10 @@ public class QuestionAnswerManagement extends JFrame {
         // TODO: place custom component creation code here
     }
 
-    public QuestionAnswerManagement(String title){
-        super(title);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public QuestionAnswerManagement(User user){
     }
+
     public static void main(String[] args){
-        JFrame frame = new QuestionAnswerManagement("Quản Lý Đáp Án Câu Hỏi");
-        frame.setVisible(true);
     }
 }
 
