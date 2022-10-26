@@ -38,7 +38,7 @@ public class MenuAdmin extends JFrame{
         });
         buttonQuestionManagementViewMenuAdmin.addActionListener(event -> {
            this.dispose();
-           new QuestionManagement();
+           new QuestionManagement(loginUser);
         });
         buttonRoomManagementViewMenuAdmin.addActionListener(event -> {
             this.dispose();

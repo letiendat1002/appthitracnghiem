@@ -231,7 +231,11 @@ public class ExamManagement extends JFrame {
 
     private void makeTableSearchable() {
         rowSorter = new TableRowSorter<>(rowModel);
-        rowSorter.setSortable(0, false);
+        var i = 0;
+        while (i < columnModel.getColumnCount()) {
+            rowSorter.setSortable(i, false);
+            ++i;
+        }
         tableViewExamManagement.setRowSorter(rowSorter);
         textfieldFindViewExamManagement
                 .getDocument()

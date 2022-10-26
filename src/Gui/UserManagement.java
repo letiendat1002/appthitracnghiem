@@ -13,7 +13,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class UserManagement extends JFrame {
     private final User loginUser;
@@ -42,6 +41,7 @@ public class UserManagement extends JFrame {
     private TableRowSorter<TableModel> rowSorter = null;
     private ArrayList<User> list;
     private String passwordBeforeChanged;
+
     private User chosenUser = null;
 
     public UserManagement(User user) {
@@ -170,7 +170,7 @@ public class UserManagement extends JFrame {
             var radioHost = radiobuttonHostViewUserManagement.isSelected();
             var radioAttendee = radiobuttonAttendeeViewUserManagement.isSelected();
             var radioIsSelected = radioHost || radioAttendee;
-            if (fullName.isEmpty() || password.isEmpty() || !radioIsSelected) {
+            if (userID.isEmpty() || fullName.isEmpty() || password.isEmpty() || !radioIsSelected) {
                 JOptionPane.showMessageDialog(
                         this,
                         "Các trường thông tin không được bỏ trống!",
@@ -178,43 +178,32 @@ public class UserManagement extends JFrame {
                         JOptionPane.WARNING_MESSAGE
                 );
             } else {
-                if (!password.equals(passwordBeforeChanged)) {
-                    var password_encrypted = UserDAO.encryptPassword(password);
-                    if (!Objects.equals(password_encrypted, passwordBeforeChanged)) {
-                        var user = new User(
-                                userID,
-                                fullName,
-                                password_encrypted,
-                                radioHost
-                        );
-                        var isSuccess = UserDAO.update(user);
-                        if (isSuccess) {
-                            JOptionPane.showMessageDialog(
-                                    this,
-                                    "Cập nhật thành công.",
-                                    "Cập Nhật",
-                                    JOptionPane.INFORMATION_MESSAGE
-                            );
-                            fillDataToTable();
-                        } else {
-                            JOptionPane.showMessageDialog(
-                                    this,
-                                    "Cập nhật thất bại. Xin hãy thử lại!",
-                                    "Cập Nhật",
-                                    JOptionPane.ERROR_MESSAGE
-                            );
-                        }
-                        resetInputField();
-                    } else {
-                        JOptionPane.showMessageDialog(
-                                this,
-                                "Cập nhật thành công.",
-                                "Cập Nhật",
-                                JOptionPane.INFORMATION_MESSAGE
-                        );
-                        resetInputField();
-                    }
+                var passwordIsChanged = !password.equals(passwordBeforeChanged);
+                var password_encrypted = (passwordIsChanged) ? UserDAO.encryptPassword(password) : passwordBeforeChanged;
+                var user = new User(
+                        userID,
+                        fullName,
+                        password_encrypted,
+                        radioHost
+                );
+                var isSuccess = UserDAO.update(user);
+                if (isSuccess) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Cập nhật thành công.",
+                            "Cập Nhật",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                    fillDataToTable();
+                } else {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Cập nhật thất bại. Xin hãy thử lại!",
+                            "Cập Nhật",
+                            JOptionPane.ERROR_MESSAGE
+                    );
                 }
+                resetInputField();
             }
         });
 
@@ -280,7 +269,11 @@ public class UserManagement extends JFrame {
 
     private void makeTableSearchable() {
         rowSorter = new TableRowSorter<>(rowModel);
-        rowSorter.setSortable(0, false);
+        var i = 0;
+        while (i < columnModel.getColumnCount()) {
+            rowSorter.setSortable(i, false);
+            ++i;
+        }
         tableViewUserManagement.setRowSorter(rowSorter);
         textfieldFindViewUserManagement
                 .getDocument()
