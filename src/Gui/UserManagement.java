@@ -269,7 +269,11 @@ public class UserManagement extends JFrame {
 
     private void makeTableSearchable() {
         rowSorter = new TableRowSorter<>(rowModel);
-        rowSorter.setSortable(0, false);
+        var i = 0;
+        while (i < columnModel.getColumnCount()) {
+            rowSorter.setSortable(i, false);
+            ++i;
+        }
         tableViewUserManagement.setRowSorter(rowSorter);
         textfieldFindViewUserManagement
                 .getDocument()

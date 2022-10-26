@@ -140,10 +140,11 @@ public class QuestionManagement extends JFrame {
                         JOptionPane.WARNING_MESSAGE
                 );
             } else {
+                var question_id = Long.parseLong(textfieldQuestionIDViewQuestionManagement.getText().trim());
                 var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().trim());
                 var level = comboboxLevelViewQuestionManagement.getSelectedIndex() + 1;
                 var content = textfieldQuestionContentViewQuestionManagement.getText().trim();
-                var question = new Question(exam_id,level,content);
+                var question = new Question(question_id,exam_id,level,content);
                 var isSuccess = QuestionDAO.update(question);
                 if (isSuccess) {
                     JOptionPane.showMessageDialog(
@@ -230,7 +231,7 @@ public class QuestionManagement extends JFrame {
         for (var question : list) {
             rowModel.addRow(new Object[]{
                     question.getQuestion_id(),
-                    question.getQuestion_id(),
+                    question.getExam_id(),
                     question.getLevel(),
                     question.getContent()
             });
@@ -239,7 +240,11 @@ public class QuestionManagement extends JFrame {
 
     private void makeTableSearchable() {
         rowSorter = new TableRowSorter<>(rowModel);
-        rowSorter.setSortable(0, false);
+        var i = 0;
+        while (i < columnModel.getColumnCount()) {
+            rowSorter.setSortable(i, false);
+            ++i;
+        }
         tableViewQuestionManagement.setRowSorter(rowSorter);
         textfieldFindViewQuestionManagement
                 .getDocument()

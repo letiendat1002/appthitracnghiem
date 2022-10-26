@@ -61,13 +61,14 @@ public class QuestionDAO {
     }
 
     public static boolean update(Question question) {
-        var query = "update questions set exam_id = ?, level = ?, content = ? where question_id = ?";
+        var query = "update dbquiz.questions set exam_id = ?, level = ?, content = ?  where question_id = ?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, question.getExam_id());
             ps.setInt(2, question.getLevel());
             ps.setString(3, question.getContent());
             ps.setLong(4, question.getQuestion_id());
             var count = ps.executeUpdate();
+            System.out.println("count: " + count);
             return count != 0;
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
