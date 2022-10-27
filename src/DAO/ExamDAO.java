@@ -29,7 +29,7 @@ public class ExamDAO {
         return list;
     }
 
-    public static Exam selectByExamID(long examID) {
+    public static Exam selectByID(long examID) {
         var exam = new Exam();
         var query = "select * from exams where exam_id=?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
@@ -92,7 +92,7 @@ public class ExamDAO {
     public static void main(String[] args) {
         ArrayList<Exam> exams = ExamDAO.selectAll();
         System.out.println(exams.get(0).getExam_id());
-        Exam exam = ExamDAO.selectByExamID(1);
+        Exam exam = ExamDAO.selectByID(1);
         System.out.println(
                 (exam != null ? exam.getScore_per_question() : -1)
                         + " "

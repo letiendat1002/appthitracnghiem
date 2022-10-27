@@ -274,7 +274,7 @@ public class ExamManagement extends JFrame {
     }
 
     private boolean verifyExamNotExist(long examID) {
-        var exam = ExamDAO.selectByExamID(examID);
+        var exam = ExamDAO.selectByID(examID);
         return exam == null;
     }
 

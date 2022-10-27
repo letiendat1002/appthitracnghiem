@@ -314,7 +314,7 @@ public class UserManagement extends JFrame {
     }
 
     private boolean verifyAccountNotExist(String userID) {
-        var user = UserDAO.selectByUserID(userID);
+        var user = UserDAO.selectByID(userID);
         return user == null;
     }
 

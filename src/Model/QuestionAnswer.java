@@ -9,6 +9,12 @@ public class QuestionAnswer {
     public QuestionAnswer() {
     }
 
+    public QuestionAnswer(long question_id, String content, boolean is_correct) {
+        this.question_id = question_id;
+        this.content = content;
+        this.is_correct = is_correct;
+    }
+
     public QuestionAnswer(long question_answer_id, long question_id, String content, boolean is_correct) {
         this.question_answer_id = question_answer_id;
         this.question_id = question_id;

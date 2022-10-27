@@ -95,7 +95,7 @@ public class UserDAO {
         return null;
     }
 
-    public static User selectByUserID(String userID) {
+    public static User selectByID(String userID) {
         var user = new User();
         var query = "select * from users where user_id=?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
