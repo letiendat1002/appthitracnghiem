@@ -28,7 +28,7 @@ public class QuestionDAO {
         return list;
     }
 
-    public static Question selectByQuestionID(long questionID) {
+    public static Question selectByID(long questionID) {
         var question = new Question();
         var query = "select * from questions where question_id=?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
@@ -61,14 +61,13 @@ public class QuestionDAO {
     }
 
     public static boolean update(Question question) {
-        var query = "update dbquiz.questions set exam_id = ?, level = ?, content = ?  where question_id = ?";
+        var query = "update questions set exam_id = ?, level = ?, content = ?  where question_id = ?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, question.getExam_id());
             ps.setInt(2, question.getLevel());
             ps.setString(3, question.getContent());
             ps.setLong(4, question.getQuestion_id());
             var count = ps.executeUpdate();
-            System.out.println("count: " + count);
             return count != 0;
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -89,7 +88,7 @@ public class QuestionDAO {
     public static void main(String[] args) {
         ArrayList<Question> questions = QuestionDAO.selectAll();
         System.out.println(questions.get(0).getExam_id());
-        Question question = QuestionDAO.selectByQuestionID(1);
+        Question question = QuestionDAO.selectByID(1);
         System.out.println(
                 (question != null ? question.getLevel() : -1)
                         + " "
