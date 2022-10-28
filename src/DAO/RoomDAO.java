@@ -2,6 +2,7 @@ package DAO;
 
 import JDBCHelper.DatabaseConnection;
 import Model.Room;
+import Model.User;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,6 +29,28 @@ public class RoomDAO {
             throw new RuntimeException(e);
         }
         return list;
+    }
+
+    public static Room selectByRoomIDAndPassword(String roomID, String password){
+        var room = new Room();
+        var query = "select * from rooms where room_id=? and password=?";
+        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+            ps.setString(1, roomID);
+            ps.setString(2, password);
+            var resultSet = ps.executeQuery();
+            if (resultSet.next()) {
+                room.setRoom_id(resultSet.getLong("room_id"));
+                room.setExam_id(resultSet.getLong("exam_id"));
+                room.setTitle(resultSet.getString("title"));
+                room.setTime_limit(resultSet.getInt("time_limit"));
+                room.setPassword(resultSet.getString("password"));
+                room.setAvailable(resultSet.getBoolean("is_available"));
+                return room;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     public static Room selectByID(long roomID) {

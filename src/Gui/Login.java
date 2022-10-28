@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Login extends JFrame {
+    private static final String username_admin = "admin";
+    private static final String password_admin = "admin";
     private JPanel panelViewLogin;
     private JLabel labelUsernameViewLogin;
     private JLabel labelPasswordViewLogin;
@@ -17,9 +19,6 @@ public class Login extends JFrame {
     private JButton buttonSignupViewLogin;
     private JLabel labelSignupViewLogin;
     private JCheckBox checkboxShowPasswordViewLogin;
-
-    private static final String username_admin = "admin";
-    private static final String password_admin = "admin";
 
     public Login() {
         addActionEvent();
@@ -38,43 +37,42 @@ public class Login extends JFrame {
 
     private void addActionEvent() {
         buttonLoginViewLogin.addActionListener(event -> {
-            try {
-                var username = textfieldUsernameViewLogin.getText().trim();
-                var password = String.valueOf(passwordfieldPasswordViewLogin.getPassword()).trim();
-                var password_encrypted = UserDAO.encryptPassword(password);
-                var user = UserDAO.selectByAccount(username, password_encrypted);
-                if (username.isEmpty() || password.isEmpty()) {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Tên đăng nhập hoặc mật khẩu không được bỏ trống!",
-                            "Cảnh Báo Đăng Nhập",
-                            JOptionPane.WARNING_MESSAGE
-                    );
-                } else if (username.equals(username_admin) && password.equals(password_admin)) {
-                    var admin = new User("admin", "admin", "admin", true);
+            var username = textfieldUsernameViewLogin.getText().trim();
+            var password = String.valueOf(passwordfieldPasswordViewLogin.getPassword()).trim();
+            if (username.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Tên đăng nhập hoặc mật khẩu không được bỏ trống!",
+                        "Cảnh Báo",
+                        JOptionPane.WARNING_MESSAGE
+                );
+            } else {
+                if (username.equals(username_admin) && password.equals(password_admin)) {
+                    var admin = new User(username_admin, username_admin, password_admin, true);
                     this.dispose();
                     new MenuAdmin(admin);
-                } else if (user != null) {
-                    this.dispose();
-                    var checkHost = user.isHost();
-                    if (checkHost) {
-                        new MenuHost(user);
-                    } else {
-                        new MenuAttendee(user);
-                    }
                 } else {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Sai tên đăng nhập hoặc mật khẩu",
-                            "Cảnh Báo Đăng Nhập",
-                            JOptionPane.WARNING_MESSAGE
-                    );
-                    passwordfieldPasswordViewLogin.setText("");
+                    var password_encrypted = UserDAO.encryptPassword(password);
+                    var loginUser = UserDAO.selectByAccount(username, password_encrypted);
+                    if (loginUser != null) {
+                        this.dispose();
+                        var checkHost = loginUser.isHost();
+                        if (checkHost) {
+                            new MenuHost(loginUser);
+                        } else {
+                            new MenuAttendee(loginUser);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Sai tên đăng nhập hoặc mật khẩu",
+                                "Cảnh Báo",
+                                JOptionPane.WARNING_MESSAGE
+                        );
+                        passwordfieldPasswordViewLogin.setText("");
+                    }
                 }
-            } catch (NullPointerException e) {
-                e.printStackTrace();
             }
-
         });
 
         buttonSignupViewLogin.addActionListener(event -> {
@@ -94,7 +92,7 @@ public class Login extends JFrame {
             var selection = JOptionPane.showConfirmDialog(
                     this,
                     "Bạn thật sự muốn thoát?",
-                    "Thoát Ứng Dụng",
+                    "Thoát",
                     JOptionPane.OK_CANCEL_OPTION,
                     JOptionPane.QUESTION_MESSAGE);
             if (selection == JOptionPane.OK_OPTION) {
