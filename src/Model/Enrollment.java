@@ -9,6 +9,12 @@ public class Enrollment {
     public Enrollment() {
     }
 
+    public Enrollment(String user_id, long room_id, double score) {
+        this.user_id = user_id;
+        this.room_id = room_id;
+        this.score = score;
+    }
+
     public Enrollment(long enrollment_id, String user_id, long room_id, double score) {
         this.enrollment_id = enrollment_id;
         this.user_id = user_id;
