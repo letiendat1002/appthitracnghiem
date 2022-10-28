@@ -11,6 +11,14 @@ public class Room {
     public Room() {
     }
 
+    public Room(long exam_id, String title, int time_limit, String password, boolean is_available) {
+        this.exam_id = exam_id;
+        this.title = title;
+        this.time_limit = time_limit;
+        this.password = password;
+        this.is_available = is_available;
+    }
+
     public Room(long room_id, long exam_id, String title, int time_limit, String password, boolean is_available) {
         this.room_id = room_id;
         this.exam_id = exam_id;

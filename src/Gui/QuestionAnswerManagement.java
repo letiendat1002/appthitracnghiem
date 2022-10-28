@@ -1,8 +1,6 @@
 package Gui;
 
 import DAO.QuestionAnswerDAO;
-import DAO.QuestionDAO;
-import Model.Question;
 import Model.QuestionAnswer;
 import Model.User;
 
@@ -45,7 +43,7 @@ public class QuestionAnswerManagement extends JFrame {
         this.loginUser = user;
         initComponents();
         addActionEvent();
-        this.setTitle("Quản Lý Câu Hỏi");
+        this.setTitle("Quản Lý Đáp Án Câu Hỏi");
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(panelViewQuestionAnswerManagement);
