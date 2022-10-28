@@ -9,6 +9,12 @@ public class EnrollmentAnswer {
     public EnrollmentAnswer() {
     }
 
+    public EnrollmentAnswer(long enrollment_id, long question_id, long question_answer_id) {
+        this.enrollment_id = enrollment_id;
+        this.question_id = question_id;
+        this.question_answer_id = question_answer_id;
+    }
+
     public EnrollmentAnswer(long enrollment_answer_id, long enrollment_id, long question_id, long question_answer_id) {
         this.enrollment_answer_id = enrollment_answer_id;
         this.enrollment_id = enrollment_id;
