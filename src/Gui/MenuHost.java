@@ -37,7 +37,7 @@ public class MenuHost extends JFrame{
         });
         buttonRoomManagementViewMenuHost.addActionListener(event -> {
            this.dispose();
-           new RoomManagement();
+           new RoomManagement(loginUser);
         });
         buttonLogoutViewMenuHost.addActionListener(event -> {
             this.dispose();

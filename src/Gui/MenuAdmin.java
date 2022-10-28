@@ -42,7 +42,7 @@ public class MenuAdmin extends JFrame{
         });
         buttonRoomManagementViewMenuAdmin.addActionListener(event -> {
             this.dispose();
-            new RoomManagement();
+            new RoomManagement(loginUser);
         });
         buttonLogoutViewMenuAdmin.addActionListener(event -> {
             this.dispose();

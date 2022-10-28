@@ -1,7 +1,6 @@
 package DAO;
 
 import JDBCHelper.DatabaseConnection;
-import Model.Question;
 import Model.QuestionAnswer;
 
 import java.sql.SQLException;
