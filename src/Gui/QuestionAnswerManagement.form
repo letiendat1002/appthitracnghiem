@@ -151,7 +151,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
       </component>
       <component id="cf36" class="javax.swing.JLabel" binding="labelFindViewQuestionAnswerManagement">
         <constraints>

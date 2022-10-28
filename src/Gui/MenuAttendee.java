@@ -28,7 +28,7 @@ public class MenuAttendee extends JFrame{
     private void addActionEvent() {
         buttonGoToRoomAttendeeViewMenuAttendee.addActionListener(event -> {
            this.dispose();
-           new GoToRoomAttendee();
+           new GoToRoomAttendee(loginUser);
         });
         buttonResultAttendeeViewMenuAttendee.addActionListener(event -> {
             this.dispose();

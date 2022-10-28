@@ -1,5 +1,7 @@
 package Gui;
 
+import Model.User;
+
 import javax.swing.*;
 
 public class TakeExamAttendee {
@@ -21,6 +23,12 @@ public class TakeExamAttendee {
     private JLabel labelCurrentQuestionViewTakeExamAttendee;
     private JLabel labelQuestionContentViewTakeExamAttendee;
     private JPanel panelAnswerGroupViewTakeExamAttendee;
+
+    private final User loginUser;
+
+    public TakeExamAttendee(User loginUser) {
+        this.loginUser = loginUser;
+    }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
