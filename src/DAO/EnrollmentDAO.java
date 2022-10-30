@@ -47,6 +47,25 @@ public class EnrollmentDAO {
         return null;
     }
 
+    public static long selectIDByModel(Enrollment enrollment) {
+        var user_id = enrollment.getUser_id();
+        var room_id = enrollment.getRoom_id();
+        var score = enrollment.getScore();
+        var query = "select enrollment_id from enrollments where user_id= ? and room_id = ? and score = ? order by enrollment_id desc LIMIT 1";
+        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+            ps.setString(1, user_id);
+            ps.setLong(2, room_id);
+            ps.setDouble(3, score);
+            var resultSet = ps.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getLong("enrollment_id");
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return -1;
+    }
+
     public static boolean insert(Enrollment enrollment) {
         var query = "insert into enrollments(user_id,room_id,score) values(?,?,?)";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {

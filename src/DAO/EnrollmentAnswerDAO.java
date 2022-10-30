@@ -4,6 +4,7 @@ import JDBCHelper.DatabaseConnection;
 import Model.EnrollmentAnswer;
 
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 
 public class EnrollmentAnswerDAO {
@@ -49,10 +50,20 @@ public class EnrollmentAnswerDAO {
 
     public static boolean insert(EnrollmentAnswer enrollmentAnswer) {
         var query = "insert into enrollment_answers(enrollment_id,question_id,question_answer_id) values(?,?,?)";
+        var question_id = enrollmentAnswer.getQuestion_id();
+        var question_answer_id = enrollmentAnswer.getQuestion_answer_id();
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, enrollmentAnswer.getEnrollment_id());
-            ps.setLong(2, enrollmentAnswer.getQuestion_id());
-            ps.setLong(3, enrollmentAnswer.getQuestion_answer_id());
+            if (question_id == null) {
+                ps.setNull(2, Types.BIGINT);
+            } else {
+                ps.setLong(2, question_id);
+            }
+            if (question_answer_id == null) {
+                ps.setNull(3, Types.BIGINT);
+            } else {
+                ps.setLong(3, question_answer_id);
+            }
             var count = ps.executeUpdate();
             return count != 0;
         } catch (SQLException | ClassNotFoundException e) {
@@ -62,11 +73,21 @@ public class EnrollmentAnswerDAO {
 
     public static boolean update(EnrollmentAnswer enrollmentAnswer) {
         var query = "update enrollment_answers set enrollment_id = ?, question_id = ?, question_answer_id = ?  where enrollment_answer_id = ?";
+        var question_id = enrollmentAnswer.getQuestion_id();
+        var question_answer_id = enrollmentAnswer.getQuestion_answer_id();
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, enrollmentAnswer.getEnrollment_id());
             ps.setLong(2, enrollmentAnswer.getQuestion_id());
-            ps.setLong(3, enrollmentAnswer.getQuestion_answer_id());
-            ps.setLong(4, enrollmentAnswer.getEnrollment_answer_id());
+            if (question_id == null) {
+                ps.setNull(2, Types.BIGINT);
+            } else {
+                ps.setLong(2, question_id);
+            }
+            if (question_answer_id == null) {
+                ps.setNull(3, Types.BIGINT);
+            } else {
+                ps.setLong(3, question_answer_id);
+            }
             var count = ps.executeUpdate();
             return count != 0;
         } catch (SQLException | ClassNotFoundException e) {
