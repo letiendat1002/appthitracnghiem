@@ -57,7 +57,7 @@ public class GoToRoomAttendee extends JFrame {
                 var room = RoomDAO.selectByRoomIDAndPassword(roomID, password);
                 if (room != null) {
                     this.dispose();
-                    new TakeExamAttendee(loginUser);
+                    new TakeExamAttendee(loginUser, room);
                 } else {
                     JOptionPane.showMessageDialog(
                             this,
