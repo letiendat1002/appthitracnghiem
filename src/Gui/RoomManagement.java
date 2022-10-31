@@ -92,7 +92,9 @@ public class RoomManagement extends JFrame {
                 var index = tableViewRoomManagement.getSelectedRow();
                 chosenRoom = list.get(index);
                 textfieldRoomIDViewRoomManagement.setText(String.valueOf(chosenRoom.getRoom_id()));
-                textfiledExamIDViewRoomManagement.setText(String.valueOf(chosenRoom.getExam_id()));
+                textfiledExamIDViewRoomManagement.setText(
+                        String.valueOf((chosenRoom.getExam_id() == 0) ? "null" : chosenRoom.getExam_id())
+                );
                 textfieldRoomTitleViewRoomManaGement.setText(chosenRoom.getTitle());
                 textfieldTimeLimitViewRoomManagement.setText(String.valueOf(chosenRoom.getTime_limit()));
                 textfieldRoomPasswordViewRoomManagement.setText(chosenRoom.getPassword());
@@ -261,7 +263,7 @@ public class RoomManagement extends JFrame {
         for (var room : list) {
             rowModel.addRow(new Object[]{
                     room.getRoom_id(),
-                    room.getExam_id(),
+                    (room.getExam_id() == 0) ? "null" : room.getExam_id(),
                     room.getTitle(),
                     room.getTime_limit(),
                     room.getPassword(),
