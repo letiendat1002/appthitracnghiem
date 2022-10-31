@@ -73,19 +73,30 @@ public class TakeExamAttendee extends JFrame {
 
     private void initComponents() {
         exam = TakeExamDAO.selectExamOfRoom(room.getRoom_id());
-        if (exam != null && exam.getTotal_question() > 0) {
-            labelDataTotalQuestionViewTakeExamAttendee.setText(String.valueOf(exam.getTotal_question()));
-            questionList = TakeExamDAO.selectQuestionOfExam(exam.getExam_id());
-        } else {
+        if (exam == null) {
             JOptionPane.showMessageDialog(
                     this,
                     "Đề thi đã bị lỗi. Bạn sẽ tự động thoát khỏi phòng!",
-                    "Cảnh Báo",
+                    "Lỗi",
                     JOptionPane.ERROR_MESSAGE
             );
             this.dispose();
             new MenuAttendee(loginUser);
+            return;
         }
+        questionList = TakeExamDAO.selectQuestionOfExam(exam.getExam_id());
+        if (questionList.size() == 0) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Hiện tại đề thi không có câu hỏi. Bạn sẽ tự động thoát khỏi phòng!",
+                    "Lỗi",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            this.dispose();
+            new MenuAttendee(loginUser);
+            return;
+        }
+        labelDataTotalQuestionViewTakeExamAttendee.setText(String.valueOf(exam.getTotal_question()));
         labelRoomTitleViewTakeExamAttendee.setText(room.getTitle().trim());
         labelDataRoomIDViewTakeExamAttendee.setText(String.valueOf(room.getRoom_id()));
         labelDataTimeLimitViewTakeExamAttendee.setText(String.valueOf(room.getTime_limit()));

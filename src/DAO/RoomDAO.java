@@ -2,7 +2,6 @@ package DAO;
 
 import JDBCHelper.DatabaseConnection;
 import Model.Room;
-import Model.User;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public class RoomDAO {
         return list;
     }
 
-    public static Room selectByRoomIDAndPassword(String roomID, String password){
+    public static Room selectByRoomIDAndPassword(String roomID, String password) {
         var room = new Room();
         var query = "select * from rooms where room_id=? and password=?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
@@ -76,6 +75,7 @@ public class RoomDAO {
 
     public static boolean insert(Room room) {
         var query = "insert into rooms(exam_id,title,time_limit,password,is_available) values(?,?,?,?,?)";
+        var exam_id = room.getExam_id();
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, room.getExam_id());
             ps.setString(2, room.getTitle());
@@ -91,6 +91,7 @@ public class RoomDAO {
 
     public static boolean update(Room room) {
         var query = "update rooms set exam_id = ?, title = ?, time_limit = ?, password = ?, is_available = ? where room_id = ?";
+        var exam_id = room.getExam_id();
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, room.getExam_id());
             ps.setString(2, room.getTitle());

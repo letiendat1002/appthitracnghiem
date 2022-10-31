@@ -1,6 +1,7 @@
 package Gui;
 
 import DAO.RoomDAO;
+import DAO.TakeExamDAO;
 import Model.User;
 
 import javax.swing.*;
@@ -49,25 +50,50 @@ public class GoToRoomAttendee extends JFrame {
             if (roomID.isEmpty() || password.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         this,
-                        "Tên đăng nhập hoặc mật khẩu không được bỏ trống!",
-                        "Cảnh Báo Đăng Nhập",
+                        "Mã phòng thi hoặc mật khẩu phòng không được bỏ trống!",
+                        "Cảnh Báo",
                         JOptionPane.WARNING_MESSAGE
                 );
-            } else {
-                var room = RoomDAO.selectByRoomIDAndPassword(roomID, password);
-                if (room != null) {
-                    this.dispose();
-                    new TakeExamAttendee(loginUser, room);
-                } else {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Sai mã phòng hoặc mật khẩu phòng",
-                            "Cảnh Báo",
-                            JOptionPane.WARNING_MESSAGE
-                    );
-                    passwordfieldPasswordViewGoToRoomAttendee.setText("");
-                }
+                return;
             }
+            var room = RoomDAO.selectByRoomIDAndPassword(roomID, password);
+            if (room == null) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Sai mã phòng hoặc mật khẩu phòng",
+                        "Cảnh Báo",
+                        JOptionPane.WARNING_MESSAGE
+                );
+                passwordfieldPasswordViewGoToRoomAttendee.setText("");
+                return;
+            }
+            var isExamAvailable = room.getExam_id();
+            if (isExamAvailable == 0) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Không thể vào phòng. Đề thi đã bị lỗi!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                passwordfieldPasswordViewGoToRoomAttendee.setText("");
+                return;
+            }
+            var verifyUserAlreadyTakenExam = TakeExamDAO.verifyUserAlreadyTakenExam(
+                    loginUser.getUser_id(),
+                    room.getRoom_id()
+            );
+            if (verifyUserAlreadyTakenExam) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Không thể vào phòng. Bạn đã làm bài thi trong phòng này!",
+                        "Cảnh Báo",
+                        JOptionPane.WARNING_MESSAGE
+                );
+                passwordfieldPasswordViewGoToRoomAttendee.setText("");
+                return;
+            }
+            this.dispose();
+            new TakeExamAttendee(loginUser, room);
         });
 
         buttonBackViewGoToRoomAttendee.addActionListener(event -> {

@@ -11,12 +11,13 @@ import java.util.List;
 
 public class TakeExamDAO {
 
-    public static boolean verifyUserAlreadyTakenExam(String user_id){
-        var query = "select user_id from enrollments where user_id = ?";
+    public static boolean verifyUserAlreadyTakenExam(String user_id, long room_id) {
+        var query = "select user_id from enrollments where user_id = ? and room_id = ?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setString(1, user_id);
+            ps.setLong(2, room_id);
             var resultSet = ps.executeQuery();
-            return resultSet != null;
+            return resultSet.next();
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

@@ -2,7 +2,7 @@ package Model;
 
 public class Room {
     private long room_id;
-    private long exam_id;
+    private Long exam_id;
     private String title;
     private int time_limit;
     private String password;
@@ -11,7 +11,7 @@ public class Room {
     public Room() {
     }
 
-    public Room(long exam_id, String title, int time_limit, String password, boolean is_available) {
+    public Room(Long exam_id, String title, int time_limit, String password, boolean is_available) {
         this.exam_id = exam_id;
         this.title = title;
         this.time_limit = time_limit;
@@ -19,7 +19,7 @@ public class Room {
         this.is_available = is_available;
     }
 
-    public Room(long room_id, long exam_id, String title, int time_limit, String password, boolean is_available) {
+    public Room(long room_id, Long exam_id, String title, int time_limit, String password, boolean is_available) {
         this.room_id = room_id;
         this.exam_id = exam_id;
         this.title = title;
@@ -36,11 +36,11 @@ public class Room {
         this.room_id = room_id;
     }
 
-    public long getExam_id() {
+    public Long getExam_id() {
         return exam_id;
     }
 
-    public void setExam_id(long exam_id) {
+    public void setExam_id(Long exam_id) {
         this.exam_id = exam_id;
     }
 
