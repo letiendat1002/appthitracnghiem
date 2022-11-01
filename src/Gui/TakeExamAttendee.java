@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,9 +57,10 @@ public class TakeExamAttendee extends JFrame {
         this.room = room;
         this.setTitle("Phòng thi");
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setContentPane(panelViewTakeExamAttendee);
         this.pack();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         initComponents();
@@ -111,6 +114,26 @@ public class TakeExamAttendee extends JFrame {
     }
 
     private void addActionEvent() {
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                var frame = (JFrame) e.getSource();
+                var selection = JOptionPane.showConfirmDialog(
+                        frame,
+                        new Object[]{
+                                "Kết quả làm bài của bạn vẫn sẽ tính nếu bạn thoát ngay lúc này!",
+                                "Bạn có chắc chắn muốn thoát phòng thi?"
+                        },
+                        "Xác Nhận",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE);
+                if (selection == JOptionPane.OK_OPTION) {
+                    timer.stop();
+                    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    executeAndShowResult();
+                }
+            }
+        });
+
         tabbedpanelTakeExamViewTakeExamAttendee.addChangeListener(event -> {
             var prevQAAForm = (QuestionAndAnswerForm) tabbedpanelTakeExamViewTakeExamAttendee.getComponentAt(prevQAAFormIndex);
             if (prevQAAForm.getButtonGroup().getSelection() != null) {
@@ -163,7 +186,7 @@ public class TakeExamAttendee extends JFrame {
             chosenAnswerList.add(s1);
         }
         var index = 0;
-        for (var chosenAnswer: chosenAnswerList) {
+        for (var chosenAnswer : chosenAnswerList) {
             var correctAnswer = correctAnswerList.get(index++);
             if (chosenAnswer.equals(correctAnswer)) {
                 resultList.add("Đúng");

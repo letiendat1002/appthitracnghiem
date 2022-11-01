@@ -60,7 +60,17 @@ public class GoToRoomAttendee extends JFrame {
             if (room == null) {
                 JOptionPane.showMessageDialog(
                         this,
-                        "Sai mã phòng hoặc mật khẩu phòng",
+                        "Sai mã phòng hoặc mật khẩu phòng!",
+                        "Cảnh Báo",
+                        JOptionPane.WARNING_MESSAGE
+                );
+                passwordfieldPasswordViewGoToRoomAttendee.setText("");
+                return;
+            }
+            if(!room.isAvailable()){
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Phòng thi đã bị đóng!",
                         "Cảnh Báo",
                         JOptionPane.WARNING_MESSAGE
                 );
@@ -94,7 +104,7 @@ public class GoToRoomAttendee extends JFrame {
             }
             var room_id_text = "Mã phòng thi: " + room.getRoom_id();
             var room_title_text = "Tiêu đề: " + room.getTitle();
-            var room_timelimit_text = "Thời gian: " + room.getTime_limit();
+            var room_timelimit_text = "Thời gian: " + room.getTime_limit() + " phút";
             var confirm = "Bạn muốn vào phòng thi ngay bây giờ?";
             var selection = JOptionPane.showConfirmDialog(
                     this,

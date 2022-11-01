@@ -1,6 +1,7 @@
 package Gui;
 
 import DAO.QuestionAnswerDAO;
+import DAO.QuestionDAO;
 import Model.QuestionAnswer;
 import Model.User;
 
@@ -103,30 +104,40 @@ public class QuestionAnswerManagement extends JFrame {
                         "Cảnh Báo",
                         JOptionPane.WARNING_MESSAGE
                 );
-            } else {
-                var question_id = Long.parseLong(textfieldQuestionIDViewQuestionAnswerManagement.getText().trim());
-                var content = textfieldAnswerContentViewQuestionAnswerManagement.getText().trim();
-                var isCorrect = checkboxCorrectAnswerViewQuestionAnswerManagement.isSelected();
-                var questionAnswer = new QuestionAnswer(question_id, content, isCorrect);
-                var isSuccess = QuestionAnswerDAO.insert(questionAnswer);
-                if (isSuccess) {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Thêm thành công.",
-                            "Thông Báo",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                    fillDataToTable();
-                } else {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Thêm thất bại. Xin hãy thử lại!",
-                            "Lỗi",
-                            JOptionPane.ERROR_MESSAGE
-                    );
-                }
-                resetInputField();
+                return;
             }
+            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionAnswerManagement.getText().trim());
+            var checkValidQuestionID = QuestionDAO.selectByID(question_id);
+            if (checkValidQuestionID == null) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Mã câu hỏi không tồn tại. Hãy kiểm tra và thử lại sau!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            var content = textfieldAnswerContentViewQuestionAnswerManagement.getText().trim();
+            var isCorrect = checkboxCorrectAnswerViewQuestionAnswerManagement.isSelected();
+            var questionAnswer = new QuestionAnswer(question_id, content, isCorrect);
+            var isSuccess = QuestionAnswerDAO.insert(questionAnswer);
+            if (isSuccess) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Thêm thành công.",
+                        "Thông Báo",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+                fillDataToTable();
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Thêm thất bại. Xin hãy thử lại!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+            resetInputField();
         });
 
         buttonUpdateViewQuestionAnswerManagement.addActionListener(event -> {
@@ -139,31 +150,41 @@ public class QuestionAnswerManagement extends JFrame {
                         "Cảnh Báo",
                         JOptionPane.WARNING_MESSAGE
                 );
-            } else {
-                var question_answer_id = Long.parseLong(textfieldQuestionAnswerIDViewQuestionAnswerManagement.getText().trim());
-                var question_id = Long.parseLong(textfieldQuestionIDViewQuestionAnswerManagement.getText().trim());
-                var content = textfieldAnswerContentViewQuestionAnswerManagement.getText().trim();
-                var isCorrect = checkboxCorrectAnswerViewQuestionAnswerManagement.isSelected();
-                var questionAnswer = new QuestionAnswer(question_answer_id, question_id, content, isCorrect);
-                var isSuccess = QuestionAnswerDAO.update(questionAnswer);
-                if (isSuccess) {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Cập nhật thành công.",
-                            "Thông Báo",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                    fillDataToTable();
-                } else {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Cập nhật thất bại. Xin hãy thử lại!",
-                            "Lỗi",
-                            JOptionPane.ERROR_MESSAGE
-                    );
-                }
-                resetInputField();
+                return;
             }
+            var question_answer_id = Long.parseLong(textfieldQuestionAnswerIDViewQuestionAnswerManagement.getText().trim());
+            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionAnswerManagement.getText().trim());
+            var checkValidQuestionID = QuestionDAO.selectByID(question_id);
+            if (checkValidQuestionID == null) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Mã câu hỏi không tồn tại. Hãy kiểm tra và thử lại sau!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            var content = textfieldAnswerContentViewQuestionAnswerManagement.getText().trim();
+            var isCorrect = checkboxCorrectAnswerViewQuestionAnswerManagement.isSelected();
+            var questionAnswer = new QuestionAnswer(question_answer_id, question_id, content, isCorrect);
+            var isSuccess = QuestionAnswerDAO.update(questionAnswer);
+            if (isSuccess) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Cập nhật thành công.",
+                        "Thông Báo",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+                fillDataToTable();
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Cập nhật thất bại. Xin hãy thử lại!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+            resetInputField();
         });
 
         buttonDeleteViewQuestionAnswerManagement.addActionListener(event -> {
@@ -204,7 +225,6 @@ public class QuestionAnswerManagement extends JFrame {
 
         buttonBackViewQuestionAnswerManagement.addActionListener(event -> {
             this.dispose();
-            new QuestionManagement(loginUser);
         });
     }
 

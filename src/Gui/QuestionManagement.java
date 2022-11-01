@@ -1,5 +1,6 @@
 package Gui;
 
+import DAO.ExamDAO;
 import DAO.QuestionDAO;
 import Model.Question;
 import Model.User;
@@ -101,30 +102,40 @@ public class QuestionManagement extends JFrame {
                         "Cảnh Báo",
                         JOptionPane.WARNING_MESSAGE
                 );
-            } else {
-                var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().trim());
-                var level = comboboxLevelViewQuestionManagement.getSelectedIndex() + 1;
-                var content = textfieldQuestionContentViewQuestionManagement.getText().trim();
-                var question = new Question(exam_id, level, content);
-                var isSuccess = QuestionDAO.insert(question);
-                if (isSuccess) {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Thêm thành công.",
-                            "Thông Báo",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                    fillDataToTable();
-                } else {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Thêm thất bại. Xin hãy thử lại!",
-                            "Lỗi",
-                            JOptionPane.ERROR_MESSAGE
-                    );
-                }
-                resetInputField();
+                return;
             }
+            var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().trim());
+            var checkValidExamID = ExamDAO.selectByID(exam_id);
+            if (checkValidExamID == null) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Mã đề thi không tồn tại. Hãy kiểm tra và thử lại sau!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            var level = comboboxLevelViewQuestionManagement.getSelectedIndex() + 1;
+            var content = textfieldQuestionContentViewQuestionManagement.getText().trim();
+            var question = new Question(exam_id, level, content);
+            var isSuccess = QuestionDAO.insert(question);
+            if (isSuccess) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Thêm thành công.",
+                        "Thông Báo",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+                fillDataToTable();
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Thêm thất bại. Xin hãy thử lại!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+            resetInputField();
         });
 
         buttonUpdateViewQuestionManagement.addActionListener(e -> {
@@ -137,31 +148,41 @@ public class QuestionManagement extends JFrame {
                         "Cảnh Báo",
                         JOptionPane.WARNING_MESSAGE
                 );
-            } else {
-                var question_id = Long.parseLong(textfieldQuestionIDViewQuestionManagement.getText().trim());
-                var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().trim());
-                var level = comboboxLevelViewQuestionManagement.getSelectedIndex() + 1;
-                var content = textfieldQuestionContentViewQuestionManagement.getText().trim();
-                var question = new Question(question_id,exam_id,level,content);
-                var isSuccess = QuestionDAO.update(question);
-                if (isSuccess) {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Cập nhật thành công.",
-                            "Thông Báo",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                    fillDataToTable();
-                } else {
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Cập nhật thất bại. Xin hãy thử lại!",
-                            "Lỗi",
-                            JOptionPane.ERROR_MESSAGE
-                    );
-                }
-                resetInputField();
+                return;
             }
+            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionManagement.getText().trim());
+            var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().trim());
+            var checkValidExamID = ExamDAO.selectByID(exam_id);
+            if (checkValidExamID == null) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Mã đề thi không tồn tại. Hãy kiểm tra và thử lại sau!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            var level = comboboxLevelViewQuestionManagement.getSelectedIndex() + 1;
+            var content = textfieldQuestionContentViewQuestionManagement.getText().trim();
+            var question = new Question(question_id, exam_id, level, content);
+            var isSuccess = QuestionDAO.update(question);
+            if (isSuccess) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Cập nhật thành công.",
+                        "Thông Báo",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+                fillDataToTable();
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Cập nhật thất bại. Xin hãy thử lại!",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+            resetInputField();
         });
 
         buttonDeleteViewQuestionManagement.addActionListener(e -> {
@@ -196,7 +217,6 @@ public class QuestionManagement extends JFrame {
         });
 
         buttonQuestionAnswerViewQuestionMangagement.addActionListener(e -> {
-            this.dispose();
             new QuestionAnswerManagement(loginUser);
         });
 
