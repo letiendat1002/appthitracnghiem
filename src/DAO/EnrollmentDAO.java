@@ -11,7 +11,7 @@ public class EnrollmentDAO {
     public static ArrayList<Enrollment> selectAll() {
         var list = new ArrayList<Enrollment>();
         var query = "select * from enrollments";
-        try (var statement = DatabaseConnection.getConnection().createStatement()) {
+        try (var statement = DatabaseConnection.getConnectionInstance().createStatement()) {
             var resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 list.add(
@@ -23,7 +23,7 @@ public class EnrollmentDAO {
                         )
                 );
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return list;
@@ -32,7 +32,7 @@ public class EnrollmentDAO {
     public static Enrollment selectByID(long enrollment_id) {
         var enrollment = new Enrollment();
         var query = "select * from enrollments where enrollment_id=?";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setLong(1, enrollment_id);
             var resultSet = ps.executeQuery();
             if (resultSet.next()) {
@@ -42,7 +42,7 @@ public class EnrollmentDAO {
                 enrollment.setScore(resultSet.getDouble("score"));
                 return enrollment;
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return null;
@@ -51,7 +51,7 @@ public class EnrollmentDAO {
     public static List<Enrollment> selectByUserID(String user_id) {
         var list = new ArrayList<Enrollment>();
         var query = "select * from enrollments where user_id=?";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setString(1, user_id);
             var resultSet = ps.executeQuery();
             while (resultSet.next()) {
@@ -64,7 +64,7 @@ public class EnrollmentDAO {
                         )
                 );
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return list;
@@ -75,7 +75,7 @@ public class EnrollmentDAO {
         var room_id = enrollment.getRoom_id();
         var score = enrollment.getScore();
         var query = "select enrollment_id from enrollments where user_id= ? and room_id = ? and score = ? order by enrollment_id desc LIMIT 1";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setString(1, user_id);
             ps.setLong(2, room_id);
             ps.setDouble(3, score);
@@ -83,7 +83,7 @@ public class EnrollmentDAO {
             if (resultSet.next()) {
                 return resultSet.getLong("enrollment_id");
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return -1;
@@ -91,38 +91,38 @@ public class EnrollmentDAO {
 
     public static boolean insert(Enrollment enrollment) {
         var query = "insert into enrollments(user_id,room_id,score) values(?,?,?)";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setString(1, enrollment.getUser_id());
             ps.setLong(2, enrollment.getRoom_id());
             ps.setDouble(3, enrollment.getScore());
             var count = ps.executeUpdate();
             return count != 0;
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static boolean update(Enrollment enrollment) {
         var query = "update enrollments set user_id = ?, room_id = ?, score = ?  where enrollment_id = ?";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setString(1, enrollment.getUser_id());
             ps.setLong(2, enrollment.getRoom_id());
             ps.setDouble(3, enrollment.getScore());
             ps.setLong(4, enrollment.getEnrollment_id());
             var count = ps.executeUpdate();
             return count != 0;
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static boolean delete(long enrollment_id) {
         var query = "delete from enrollments where enrollment_id = ?";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setLong(1, enrollment_id);
             var count = ps.executeUpdate();
             return count != 0;
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

@@ -10,7 +10,7 @@ public class RoomDAO {
     public static ArrayList<Room> selectAll() {
         var list = new ArrayList<Room>();
         var query = "select * from rooms";
-        try (var statement = DatabaseConnection.getConnection().createStatement()) {
+        try (var statement = DatabaseConnection.getConnectionInstance().createStatement()) {
             var resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 list.add(
@@ -24,7 +24,7 @@ public class RoomDAO {
                         )
                 );
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return list;
@@ -33,7 +33,7 @@ public class RoomDAO {
     public static Room selectVerifiedRoom(String roomID, String password) {
         var room = new Room();
         var query = "select * from rooms where room_id=? and password=?";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setString(1, roomID);
             ps.setString(2, password);
             var resultSet = ps.executeQuery();
@@ -46,7 +46,7 @@ public class RoomDAO {
                 room.setAvailable(resultSet.getBoolean("is_available"));
                 return room;
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return null;
@@ -55,7 +55,7 @@ public class RoomDAO {
     public static Room selectByID(long roomID) {
         var room = new Room();
         var query = "select * from rooms where room_id=?";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setLong(1, roomID);
             var resultSet = ps.executeQuery();
             if (resultSet.next()) {
@@ -67,7 +67,7 @@ public class RoomDAO {
                 room.setAvailable(resultSet.getBoolean("is_available"));
                 return room;
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return null;
@@ -76,7 +76,7 @@ public class RoomDAO {
     public static boolean insert(Room room) {
         var query = "insert into rooms(exam_id,title,time_limit,password,is_available) values(?,?,?,?,?)";
         var exam_id = room.getExam_id();
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setLong(1, room.getExam_id());
             ps.setString(2, room.getTitle());
             ps.setInt(3, room.getTime_limit());
@@ -84,7 +84,7 @@ public class RoomDAO {
             ps.setBoolean(5, room.isAvailable());
             var count = ps.executeUpdate();
             return count != 0;
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -92,7 +92,7 @@ public class RoomDAO {
     public static boolean update(Room room) {
         var query = "update rooms set exam_id = ?, title = ?, time_limit = ?, password = ?, is_available = ? where room_id = ?";
         var exam_id = room.getExam_id();
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setLong(1, room.getExam_id());
             ps.setString(2, room.getTitle());
             ps.setInt(3, room.getTime_limit());
@@ -101,18 +101,18 @@ public class RoomDAO {
             ps.setLong(6, room.getRoom_id());
             var count = ps.executeUpdate();
             return count != 0;
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static boolean delete(long room_id) {
         var query = "delete from rooms where room_id = ?";
-        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setLong(1, room_id);
             var count = ps.executeUpdate();
             return count != 0;
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
