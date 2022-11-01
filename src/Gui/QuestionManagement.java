@@ -1,6 +1,8 @@
 package Gui;
 
+import DAO.ExamDAO;
 import DAO.QuestionDAO;
+import Model.Exam;
 import Model.Question;
 import Model.User;
 
@@ -13,7 +15,7 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
+import java.util.ArrayList;
 
 public class QuestionManagement extends JFrame {
     private final User loginUser;
@@ -31,14 +33,14 @@ public class QuestionManagement extends JFrame {
     private JLabel labelExamIDViewQuestionManagement;
     private JLabel labelQuestionContentViewQuestionManagement;
     private JLabel labelLevelViewQuestionManagenment;
-    private JComboBox<String> comboboxLevelViewQuestionManagement;
+    private JComboBox comboboxLevelViewQuestionManagement;
     private JTextField textfieldQuestionIDViewQuestionManagement;
     private JLabel labelQuestionIDViewQuestionManagement;
     private JButton buttonRefreshViewQuestionManagement;
     private DefaultTableModel columnModel;
     private DefaultTableModel rowModel;
     private TableRowSorter<TableModel> rowSorter = null;
-    private List<Question> list;
+    private ArrayList<Question> list;
     private Question chosenQuestion = null;
 
     public QuestionManagement(User user) {
@@ -77,10 +79,10 @@ public class QuestionManagement extends JFrame {
         tableViewQuestionManagement.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                tableViewQuestionManagementMouseClicked();
+                tableViewQuestionManagementMouseClicked(e);
             }
 
-            private void tableViewQuestionManagementMouseClicked() {
+            private void tableViewQuestionManagementMouseClicked(MouseEvent e) {
                 resetInputField();
                 textfieldQuestionIDViewQuestionManagement.setEnabled(false);
                 var index = tableViewQuestionManagement.getSelectedRow();
@@ -111,7 +113,7 @@ public class QuestionManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thành công.",
-                            "Thông Báo",
+                            "Thêm",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -119,7 +121,7 @@ public class QuestionManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Thêm",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -148,7 +150,7 @@ public class QuestionManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thành công.",
-                            "Thông Báo",
+                            "Cập Nhật",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -156,7 +158,7 @@ public class QuestionManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Cập nhật",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -172,7 +174,7 @@ public class QuestionManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thành công.",
-                            "Thông Báo",
+                            "Xoá",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -180,7 +182,7 @@ public class QuestionManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Xoá",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }

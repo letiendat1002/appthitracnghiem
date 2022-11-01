@@ -26,6 +26,8 @@ public class RoomResultSummary extends JFrame {
     private DefaultTableModel rowModel;
     private TableRowSorter<TableModel> rowSorter;
 
+    private List<Enrollment> list;
+
     public RoomResultSummary(User loginUser) {
         this.loginUser = loginUser;
         this.setTitle("Tổng kết điểm");
@@ -63,13 +65,12 @@ public class RoomResultSummary extends JFrame {
 
     private void addActionEvent() {
         buttonBackViewRoomResultSummary.addActionListener(event -> {
-            this.dispose();
-            new RoomManagement(loginUser);
+
         });
     }
 
     private void fillDataToTable() {
-        List<Enrollment> list = EnrollmentDAO.selectAll();
+        list = EnrollmentDAO.selectAll();
         rowModel.setRowCount(0);
         for (var enrollment : list) {
             rowModel.addRow(new Object[]{

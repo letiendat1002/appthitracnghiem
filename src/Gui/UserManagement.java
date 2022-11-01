@@ -12,7 +12,7 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
+import java.util.ArrayList;
 
 public class UserManagement extends JFrame {
     private final User loginUser;
@@ -36,12 +36,12 @@ public class UserManagement extends JFrame {
     private JButton buttonRefreshViewUserManagement;
     private JCheckBox checkboxChangePasswordViewUserManagement;
     private ButtonGroup buttonGroupViewUserManagement;
-
     private DefaultTableModel columnModel;
     private DefaultTableModel rowModel;
     private TableRowSorter<TableModel> rowSorter = null;
-    private List<User> list;
+    private ArrayList<User> list;
     private String passwordBeforeChanged;
+
     private User chosenUser = null;
 
     public UserManagement(User user) {
@@ -82,10 +82,10 @@ public class UserManagement extends JFrame {
         tableViewUserManagement.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                tableViewUserManagementMouseClicked();
+                tableViewUserManagementMouseClicked(e);
             }
 
-            private void tableViewUserManagementMouseClicked() {
+            private void tableViewUserManagementMouseClicked(MouseEvent e) {
                 resetInputField();
                 textfieldUserIDViewUserManagement.setEnabled(false);
                 checkboxChangePasswordViewUserManagement.setSelected(false);
@@ -104,9 +104,11 @@ public class UserManagement extends JFrame {
             }
         });
 
-        checkboxChangePasswordViewUserManagement.addActionListener(e ->
-                textfieldPasswordViewUserManagement.setEnabled(checkboxChangePasswordViewUserManagement.isSelected())
-        );
+        checkboxChangePasswordViewUserManagement.addActionListener(e -> {
+            textfieldPasswordViewUserManagement.setEnabled(
+                    checkboxChangePasswordViewUserManagement.isSelected()
+            );
+        });
 
         buttonAddViewUserManagement.addActionListener(event -> {
             var userID = textfieldUserIDViewUserManagement.getText().trim();
@@ -126,7 +128,7 @@ public class UserManagement extends JFrame {
                 JOptionPane.showMessageDialog(
                         this,
                         "Không thể thêm tài khoản với UserID này. Xin hãy sử dụng UserID khác!",
-                        "Lỗi",
+                        "Thêm",
                         JOptionPane.ERROR_MESSAGE
                 );
                 textfieldUserIDViewUserManagement.setText("");
@@ -138,7 +140,7 @@ public class UserManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thành công.",
-                            "Thông Báo",
+                            "Thêm",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -146,7 +148,7 @@ public class UserManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Thêm",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -156,7 +158,7 @@ public class UserManagement extends JFrame {
                         this,
                         "UserID đã tồn tại, thử lại với UserID khác!",
                         "Cảnh Báo",
-                        JOptionPane.WARNING_MESSAGE
+                        JOptionPane.ERROR_MESSAGE
                 );
             }
         });
@@ -189,7 +191,7 @@ public class UserManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thành công.",
-                            "Thông Báo",
+                            "Cập Nhật",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -197,7 +199,7 @@ public class UserManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Cập Nhật",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -213,7 +215,7 @@ public class UserManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thành công.",
-                            "Thông Báo",
+                            "Xoá",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -221,7 +223,7 @@ public class UserManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Xoá",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
