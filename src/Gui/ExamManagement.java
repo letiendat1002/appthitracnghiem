@@ -13,9 +13,10 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
+import java.util.List;
 
 public class ExamManagement extends JFrame {
+    private final User loginUser;
     private JTextField textfieldSubjectNameViewExamManagement;
     private JTextField textfieldTotalQuestionViewExamManagement;
     private JTextField textfieldTotalScoreViewExamManagement;
@@ -33,12 +34,10 @@ public class ExamManagement extends JFrame {
     private JButton buttonRefreshViewExamManagement;
     private JTextField textfieldExamIDViewExamManagement;
     private JLabel labelExamIDViewExamManagement;
-
-    private final User loginUser;
     private DefaultTableModel columnModel;
     private DefaultTableModel rowModel;
     private TableRowSorter<TableModel> rowSorter = null;
-    private ArrayList<Exam> list;
+    private List<Exam> list;
     private Exam chosenExam = null;
 
     public ExamManagement(User user) {
@@ -77,10 +76,10 @@ public class ExamManagement extends JFrame {
         tableViewExamManagement.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                tableViewExamManagementMouseClicked(e);
+                tableViewExamManagementMouseClicked();
             }
 
-            private void tableViewExamManagementMouseClicked(MouseEvent e) {
+            private void tableViewExamManagementMouseClicked() {
                 resetInputField();
                 textfieldExamIDViewExamManagement.setEnabled(false);
                 var index = tableViewExamManagement.getSelectedRow();
@@ -113,7 +112,7 @@ public class ExamManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thành công.",
-                            "Thêm",
+                            "Thông Báo",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -121,7 +120,7 @@ public class ExamManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thất bại. Xin hãy thử lại!",
-                            "Thêm",
+                            "Lỗi",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -152,7 +151,7 @@ public class ExamManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thành công.",
-                            "Cập Nhật",
+                            "Thông Báo",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -160,7 +159,7 @@ public class ExamManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thất bại. Xin hãy thử lại!",
-                            "Cập nhật",
+                            "Lỗi",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -176,7 +175,7 @@ public class ExamManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thành công.",
-                            "Xoá",
+                            "Thông Báo",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -184,7 +183,7 @@ public class ExamManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thất bại. Xin hãy thử lại!",
-                            "Xoá",
+                            "Lỗi",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -271,11 +270,6 @@ public class ExamManagement extends JFrame {
         textfieldSubjectNameViewExamManagement.setText("");
         textfieldTotalQuestionViewExamManagement.setText("");
         textfieldTotalScoreViewExamManagement.setText("");
-    }
-
-    private boolean verifyExamNotExist(long examID) {
-        var exam = ExamDAO.selectByID(examID);
-        return exam == null;
     }
 
     private void createUIComponents() {
