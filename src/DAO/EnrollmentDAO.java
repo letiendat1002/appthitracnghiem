@@ -5,6 +5,7 @@ import Model.Enrollment;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class EnrollmentDAO {
     public static ArrayList<Enrollment> selectAll() {
@@ -45,6 +46,28 @@ public class EnrollmentDAO {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    public static List<Enrollment> selectByUserID(String user_id) {
+        var list = new ArrayList<Enrollment>();
+        var query = "select * from enrollments where user_id=?";
+        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
+            ps.setString(1, user_id);
+            var resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                list.add(
+                        new Enrollment(
+                                resultSet.getLong("enrollment_id"),
+                                resultSet.getString("user_id"),
+                                resultSet.getLong("room_id"),
+                                resultSet.getDouble("score")
+                        )
+                );
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
     }
 
     public static long selectIDByModel(Enrollment enrollment) {
