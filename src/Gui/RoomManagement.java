@@ -13,7 +13,7 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
+import java.util.List;
 
 public class RoomManagement extends JFrame {
     private final User loginUser;
@@ -44,7 +44,7 @@ public class RoomManagement extends JFrame {
     private DefaultTableModel columnModel;
     private DefaultTableModel rowModel;
     private TableRowSorter<TableModel> rowSorter = null;
-    private ArrayList<Room> list;
+    private List<Room> list;
     private Room chosenRoom = null;
 
     public RoomManagement(User loginUser) {
@@ -83,10 +83,10 @@ public class RoomManagement extends JFrame {
         tableViewRoomManagement.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                tableViewRoomManagementMouseClicked(e);
+                tableViewRoomManagementMouseClicked();
             }
 
-            private void tableViewRoomManagementMouseClicked(MouseEvent e) {
+            private void tableViewRoomManagementMouseClicked() {
                 resetInputField();
                 textfieldRoomIDViewRoomManagement.setEnabled(false);
                 var index = tableViewRoomManagement.getSelectedRow();
@@ -134,7 +134,7 @@ public class RoomManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thành công.",
-                            "Thêm",
+                            "Thông Báo",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -142,7 +142,7 @@ public class RoomManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thất bại. Xin hãy thử lại!",
-                            "Thêm",
+                            "Lỗi",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -180,7 +180,7 @@ public class RoomManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thành công.",
-                            "Cập Nhật",
+                            "Thông Báo",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -188,7 +188,7 @@ public class RoomManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thất bại. Xin hãy thử lại!",
-                            "Cập nhật",
+                            "Lỗi",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -204,7 +204,7 @@ public class RoomManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thành công.",
-                            "Xoá",
+                            "Thông Báo",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -212,7 +212,7 @@ public class RoomManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thất bại. Xin hãy thử lại!",
-                            "Xoá",
+                            "Lỗi",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
