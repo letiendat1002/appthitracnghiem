@@ -32,7 +32,7 @@ public class MenuAttendee extends JFrame{
         });
         buttonResultAttendeeViewMenuAttendee.addActionListener(event -> {
             this.dispose();
-            new ResultAttendee();
+            new ResultAttendee(loginUser);
         });
         buttonLogoutViewMenuAttendee.addActionListener(event -> {
            this.dispose();

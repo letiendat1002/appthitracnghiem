@@ -98,7 +98,7 @@ public class GoToRoomAttendee extends JFrame {
             var confirm = "Bạn muốn vào phòng thi ngay bây giờ?";
             var selection = JOptionPane.showConfirmDialog(
                     this,
-                    new Object[]{room_id_text,room_title_text,room_timelimit_text,confirm},
+                    new Object[]{room_id_text, room_title_text, room_timelimit_text, confirm},
                     null,
                     JOptionPane.OK_CANCEL_OPTION,
                     JOptionPane.QUESTION_MESSAGE);
