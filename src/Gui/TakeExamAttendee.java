@@ -127,7 +127,7 @@ public class TakeExamAttendee extends JFrame {
             var selection = JOptionPane.showConfirmDialog(
                     this,
                     "Bạn thật sự muốn nộp bài?",
-                    "Xác Nhận",
+                    "Nộp bài",
                     JOptionPane.OK_CANCEL_OPTION,
                     JOptionPane.QUESTION_MESSAGE);
             if (selection == JOptionPane.OK_OPTION) {
@@ -163,8 +163,10 @@ public class TakeExamAttendee extends JFrame {
             chosenAnswerList.add(s1);
         }
         var index = 0;
-        for (var chosenAnswer: chosenAnswerList) {
-            var correctAnswer = correctAnswerList.get(index++);
+        for (var question : questionList) {
+            var chosenAnswer = chosenAnswerList.get(index);
+            var correctAnswer = correctAnswerList.get(index);
+            index++;
             if (chosenAnswer.equals(correctAnswer)) {
                 resultList.add("Đúng");
                 totalCorrect++;
@@ -209,7 +211,7 @@ public class TakeExamAttendee extends JFrame {
             JOptionPane.showMessageDialog(
                     this,
                     "Lưu kết quả dự thi thất bại",
-                    "Lỗi",
+                    "Thất Bại",
                     JOptionPane.ERROR_MESSAGE
             );
         }

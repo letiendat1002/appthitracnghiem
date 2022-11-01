@@ -51,7 +51,7 @@ public class Signup extends JFrame {
                 JOptionPane.showMessageDialog(
                         this,
                         "Không thể tạo tài khoản với UserID này. Xin hãy sử dụng UserID khác!",
-                        "Lỗi",
+                        "Thất Bại",
                         JOptionPane.ERROR_MESSAGE
                 );
                 textfieldUserIDViewSignup.setText("");
@@ -64,14 +64,14 @@ public class Signup extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Đăng ký tài khoản thành công.",
-                            "Thông Báo",
+                            "Đăng ký",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                 } else {
                     JOptionPane.showMessageDialog(
                             this,
                             "Đăng ký tài khoản thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Thất Bại",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -80,7 +80,7 @@ public class Signup extends JFrame {
                 JOptionPane.showMessageDialog(
                         this,
                         "UserID đã tồn tại, thử lại với UserID khác!",
-                        "Lỗi",
+                        "Thất Bại",
                         JOptionPane.ERROR_MESSAGE
                 );
                 passwordfieldPasswordViewSignup.setText("");

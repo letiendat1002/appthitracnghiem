@@ -13,7 +13,7 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
+import java.util.ArrayList;
 
 public class QuestionAnswerManagement extends JFrame {
     private final User loginUser;
@@ -36,7 +36,7 @@ public class QuestionAnswerManagement extends JFrame {
     private DefaultTableModel columnModel;
     private DefaultTableModel rowModel;
     private TableRowSorter<TableModel> rowSorter = null;
-    private List<QuestionAnswer> list;
+    private ArrayList<QuestionAnswer> list;
     private QuestionAnswer chosenQuestionAnswer = null;
 
     public QuestionAnswerManagement(User user) {
@@ -79,10 +79,10 @@ public class QuestionAnswerManagement extends JFrame {
         tableViewQuestionAnswerManagement.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                tableViewQuestionAnswerManagementMouseClicked();
+                tableViewQuestionAnswerManagementMouseClicked(e);
             }
 
-            private void tableViewQuestionAnswerManagementMouseClicked() {
+            private void tableViewQuestionAnswerManagementMouseClicked(MouseEvent e) {
                 resetInputField();
                 textfieldQuestionAnswerIDViewQuestionAnswerManagement.setEnabled(false);
                 var index = tableViewQuestionAnswerManagement.getSelectedRow();
@@ -113,7 +113,7 @@ public class QuestionAnswerManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thành công.",
-                            "Thông Báo",
+                            "Thêm",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -121,7 +121,7 @@ public class QuestionAnswerManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Thêm thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Thêm",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -150,7 +150,7 @@ public class QuestionAnswerManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thành công.",
-                            "Thông Báo",
+                            "Cập Nhật",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -158,7 +158,7 @@ public class QuestionAnswerManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Cập nhật thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Cập nhật",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }
@@ -174,7 +174,7 @@ public class QuestionAnswerManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thành công.",
-                            "Thông Báo",
+                            "Xoá",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                     fillDataToTable();
@@ -182,7 +182,7 @@ public class QuestionAnswerManagement extends JFrame {
                     JOptionPane.showMessageDialog(
                             this,
                             "Xoá thất bại. Xin hãy thử lại!",
-                            "Lỗi",
+                            "Xoá",
                             JOptionPane.ERROR_MESSAGE
                     );
                 }

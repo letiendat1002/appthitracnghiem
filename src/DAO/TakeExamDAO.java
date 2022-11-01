@@ -13,12 +13,12 @@ public class TakeExamDAO {
 
     public static boolean verifyUserAlreadyTakenExam(String user_id, long room_id) {
         var query = "select user_id from enrollments where user_id = ? and room_id = ?";
-        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setString(1, user_id);
             ps.setLong(2, room_id);
             var resultSet = ps.executeQuery();
             return resultSet.next();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -26,7 +26,7 @@ public class TakeExamDAO {
     public static Exam selectExamOfRoom(long room_id) {
         var exam = new Exam();
         var query = "select exams.* from rooms inner join exams on rooms.exam_id = exams.exam_id where room_id = ?";
-        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, room_id);
             var resultSet = ps.executeQuery();
             if (resultSet.next()) {
@@ -37,7 +37,7 @@ public class TakeExamDAO {
                 exam.setScore_per_question(resultSet.getDouble("score_per_question"));
                 return exam;
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         return null;
@@ -46,7 +46,7 @@ public class TakeExamDAO {
     public static List<Question> selectQuestionOfExam(long exam_id) {
         var list = new ArrayList<Question>();
         var query = "select questions.* from questions inner join exams on questions.exam_id = exams.exam_id where exams.exam_id= ? order by questions.level asc";
-        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, exam_id);
             var resultSet = ps.executeQuery();
             while (resultSet.next()) {
@@ -59,7 +59,7 @@ public class TakeExamDAO {
                         )
                 );
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         return list;
@@ -68,7 +68,7 @@ public class TakeExamDAO {
     public static List<QuestionAnswer> selectQuestionAnswerOfQuestion(long question_id) {
         var list = new ArrayList<QuestionAnswer>();
         var query = "select question_answers.* from question_answers inner join questions on question_answers.question_id = questions.question_id where question_answers.question_id = ? order by rand()";
-        try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
+        try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
             ps.setLong(1, question_id);
             var resultSet = ps.executeQuery();
             while (resultSet.next()) {
@@ -81,7 +81,7 @@ public class TakeExamDAO {
                         )
                 );
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         return list;

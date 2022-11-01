@@ -11,20 +11,28 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import java.util.List;
 
-public class ResultForm extends JFrame {
-    private final User loginUser;
-    private final List<Question> questionList;
-    private final List<String> chosenAnswerList;
-    private final List<String> correctAnswerList;
-    private final List<String> resultList;
-    private final double score;
-    private final int totalCorrect;
+public class ResultForm extends JFrame{
     private JTable tableViewResultForm;
     private JButton buttonQuitViewResultForm;
     private JLabel labelResultViewResultForm;
     private JPanel panelViewResultForm;
     private JTextField textfieldFindViewResultForm;
     private JLabel labelFindViewResultForm;
+
+    private final User loginUser;
+
+    private final List<Question> questionList;
+
+    private final List<String> chosenAnswerList;
+
+    private final List<String> correctAnswerList;
+
+    private final List<String> resultList;
+
+    private final double score;
+
+    private int totalCorrect;
+
     private DefaultTableModel columnModel;
     private DefaultTableModel rowModel;
     private TableRowSorter<TableModel> rowSorter;
@@ -54,10 +62,6 @@ public class ResultForm extends JFrame {
         addActionEvent();
         fillData();
         makeTableSearchable();
-    }
-
-    public static void main(String[] args) {
-        //EventQueue.invokeLater(() -> new ResultForm(null, null, null, null));
     }
 
     private void initComponents() {
@@ -137,5 +141,9 @@ public class ResultForm extends JFrame {
                     public void changedUpdate(DocumentEvent e) {
                     }
                 });
+    }
+
+    public static void main(String[] args) {
+        //EventQueue.invokeLater(() -> new ResultForm(null, null, null, null));
     }
 }

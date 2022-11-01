@@ -24,6 +24,8 @@ public class ResultAttendee extends JFrame {
     private DefaultTableModel rowModel;
     private TableRowSorter<TableModel> rowSorter;
 
+    private List<Enrollment> list;
+
     public ResultAttendee(User loginUser) {
         this.loginUser = loginUser;
         this.setTitle("Xem điểm thi");
@@ -63,7 +65,7 @@ public class ResultAttendee extends JFrame {
     }
 
     private void fillDataToTable() {
-        List<Enrollment> list = EnrollmentDAO.selectByUserID(loginUser.getUser_id());
+        list = EnrollmentDAO.selectByUserID(loginUser.getUser_id());
         rowModel.setRowCount(0);
         for (var enrollment : list) {
             rowModel.addRow(new Object[]{
