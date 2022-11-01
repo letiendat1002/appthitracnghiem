@@ -56,7 +56,7 @@ public class GoToRoomAttendee extends JFrame {
                 );
                 return;
             }
-            var room = RoomDAO.selectByRoomIDAndPassword(roomID, password);
+            var room = RoomDAO.selectVerifiedRoom(roomID, password);
             if (room == null) {
                 JOptionPane.showMessageDialog(
                         this,
@@ -92,8 +92,20 @@ public class GoToRoomAttendee extends JFrame {
                 passwordfieldPasswordViewGoToRoomAttendee.setText("");
                 return;
             }
-            this.dispose();
-            new TakeExamAttendee(loginUser, room);
+            var room_id_text = "Mã phòng thi: " + room.getRoom_id();
+            var room_title_text = "Tiêu đề: " + room.getTitle();
+            var room_timelimit_text = "Thời gian: " + room.getTime_limit();
+            var confirm = "Bạn muốn vào phòng thi ngay bây giờ?";
+            var selection = JOptionPane.showConfirmDialog(
+                    this,
+                    new Object[]{room_id_text,room_title_text,room_timelimit_text,confirm},
+                    null,
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+            if (selection == JOptionPane.OK_OPTION) {
+                this.dispose();
+                new TakeExamAttendee(loginUser, room);
+            }
         });
 
         buttonBackViewGoToRoomAttendee.addActionListener(event -> {

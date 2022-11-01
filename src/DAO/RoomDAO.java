@@ -30,7 +30,7 @@ public class RoomDAO {
         return list;
     }
 
-    public static Room selectByRoomIDAndPassword(String roomID, String password) {
+    public static Room selectVerifiedRoom(String roomID, String password) {
         var room = new Room();
         var query = "select * from rooms where room_id=? and password=?";
         try (var ps = DatabaseConnection.getConnection().prepareStatement(query)) {
