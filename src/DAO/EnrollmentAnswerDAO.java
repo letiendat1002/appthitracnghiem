@@ -6,9 +6,10 @@ import Model.EnrollmentAnswer;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.List;
 
 public class EnrollmentAnswerDAO {
-    public static ArrayList<EnrollmentAnswer> selectAll() {
+    public static List<EnrollmentAnswer> selectAll() {
         var list = new ArrayList<EnrollmentAnswer>();
         var query = "select * from enrollment_answers";
         try (var statement = DatabaseConnection.getConnectionInstance().createStatement()) {
@@ -107,7 +108,7 @@ public class EnrollmentAnswerDAO {
     }
 
     public static void main(String[] args) {
-//        ArrayList<EnrollmentAnswer> enrollmentAnswers = EnrollmentAnswerDAO.selectAll();
+//        List<EnrollmentAnswer> enrollmentAnswers = EnrollmentAnswerDAO.selectAll();
 //        System.out.println(enrollmentAnswers.get(0).getQuestion_answer_id());
 //        EnrollmentAnswer enrollmentAnswer = EnrollmentAnswerDAO.selectByID(1);
 //        System.out.println(

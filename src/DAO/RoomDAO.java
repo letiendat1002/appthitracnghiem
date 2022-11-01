@@ -5,9 +5,10 @@ import Model.Room;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RoomDAO {
-    public static ArrayList<Room> selectAll() {
+    public static List<Room> selectAll() {
         var list = new ArrayList<Room>();
         var query = "select * from rooms";
         try (var statement = DatabaseConnection.getConnectionInstance().createStatement()) {
@@ -75,7 +76,6 @@ public class RoomDAO {
 
     public static boolean insert(Room room) {
         var query = "insert into rooms(exam_id,title,time_limit,password,is_available) values(?,?,?,?,?)";
-        var exam_id = room.getExam_id();
         try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setLong(1, room.getExam_id());
             ps.setString(2, room.getTitle());
@@ -91,7 +91,6 @@ public class RoomDAO {
 
     public static boolean update(Room room) {
         var query = "update rooms set exam_id = ?, title = ?, time_limit = ?, password = ?, is_available = ? where room_id = ?";
-        var exam_id = room.getExam_id();
         try (var ps = DatabaseConnection.getConnectionInstance().prepareStatement(query)) {
             ps.setLong(1, room.getExam_id());
             ps.setString(2, room.getTitle());
@@ -118,7 +117,7 @@ public class RoomDAO {
     }
 
     public static void main(String[] args) {
-        ArrayList<Room> rooms = RoomDAO.selectAll();
+        List<Room> rooms = RoomDAO.selectAll();
         System.out.println(rooms.get(0).getTitle());
         Room room = RoomDAO.selectByID(1);
         System.out.println(

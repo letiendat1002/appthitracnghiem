@@ -5,9 +5,10 @@ import Model.Question;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionDAO {
-    public static ArrayList<Question> selectAll() {
+    public static List<Question> selectAll() {
         var list = new ArrayList<Question>();
         var query = "select * from questions";
         try (var statement = DatabaseConnection.getConnectionInstance().createStatement()) {
@@ -86,7 +87,7 @@ public class QuestionDAO {
     }
 
     public static void main(String[] args) {
-        ArrayList<Question> questions = QuestionDAO.selectAll();
+        List<Question> questions = QuestionDAO.selectAll();
         System.out.println(questions.get(0).getExam_id());
         Question question = QuestionDAO.selectByID(1);
         System.out.println(

@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.List;
 
 public class UserDAO {
     private static final String ALGORITHM = "AES";
@@ -26,7 +27,7 @@ public class UserDAO {
             key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, ALGORITHM);
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -54,7 +55,7 @@ public class UserDAO {
         return null;
     }
 
-    public static ArrayList<User> selectAll() {
+    public static List<User> selectAll() {
         var list = new ArrayList<User>();
         var query = "select * from users";
         try (var statement = DatabaseConnection.getConnectionInstance().createStatement()) {
@@ -161,7 +162,7 @@ public class UserDAO {
         String decrypt = decryptPassword(encrypt);
         System.out.println(decrypt);
 
-//        ArrayList<User> user = UserDAO.selectAll();
+//        List<User> user = UserDAO.selectAll();
 //        System.out.println(user.get(0).getFull_name());
 //        User us = UserDAO.selectByAccount("19h1010020","1231242145sxvsg232");
 //        System.out.println(us != null ? us.getFull_name() : "Not found");

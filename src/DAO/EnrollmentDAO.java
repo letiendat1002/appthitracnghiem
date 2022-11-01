@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EnrollmentDAO {
-    public static ArrayList<Enrollment> selectAll() {
+    public static List<Enrollment> selectAll() {
         var list = new ArrayList<Enrollment>();
         var query = "select * from enrollments";
         try (var statement = DatabaseConnection.getConnectionInstance().createStatement()) {
@@ -128,7 +128,7 @@ public class EnrollmentDAO {
     }
 
     public static void main(String[] args) {
-        ArrayList<Enrollment> enrollments = EnrollmentDAO.selectAll();
+        List<Enrollment> enrollments = EnrollmentDAO.selectAll();
         System.out.println(enrollments.get(0).getScore());
         Enrollment enrollment = EnrollmentDAO.selectByID(1);
         System.out.println(
