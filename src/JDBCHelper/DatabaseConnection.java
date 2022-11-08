@@ -4,10 +4,20 @@ import javax.swing.*;
 import java.sql.*;
 
 public class DatabaseConnection {
-    private static final String database = "dbQuiz";
-    private static final String user = "root";
+    private static final String dbms = "mysql";
+    private static final String hostname = "localhost";
+    private static final String port = "3306";
+    private static final String schemas = "dbquiz";
+    private static final String username = "root";
     private static final String password = "123456";
-    private static final String url = "jdbc:mysql://localhost:3306/" + database;
+    private static final String url = "jdbc:"
+            + dbms
+            + "://"
+            + hostname
+            + ":"
+            + port
+            + "/"
+            + schemas;
 
     private static Connection instance;
 
@@ -33,7 +43,7 @@ public class DatabaseConnection {
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(
                 url,
-                user,
+                username,
                 password
         );
     }
