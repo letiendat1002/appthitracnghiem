@@ -5,15 +5,14 @@ import Model.User;
 import javax.swing.*;
 import java.awt.*;
 
-public class MenuAttendee extends JFrame{
+public class MenuAttendee extends JFrame {
+    private final User loginUser;
     private JButton buttonGoToRoomAttendeeViewMenuAttendee;
     private JButton buttonResultAttendeeViewMenuAttendee;
     private JButton buttonLogoutViewMenuAttendee;
     private JPanel panelViewMenuAttendee;
 
-    private final User loginUser;
-
-    public MenuAttendee(User user){
+    public MenuAttendee(User user) {
         this.loginUser = user;
         addActionEvent();
         this.setTitle("Menu Attendee");
@@ -25,25 +24,6 @@ public class MenuAttendee extends JFrame{
         this.setVisible(true);
     }
 
-    private void addActionEvent() {
-        buttonGoToRoomAttendeeViewMenuAttendee.addActionListener(event -> {
-           this.dispose();
-           new GoToRoomAttendee(loginUser);
-        });
-        buttonResultAttendeeViewMenuAttendee.addActionListener(event -> {
-            this.dispose();
-            new ResultAttendee(loginUser);
-        });
-        buttonLogoutViewMenuAttendee.addActionListener(event -> {
-           this.dispose();
-           new Login();
-        });
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
-
     public static void main(String[] args) {
         User attendee = new User(
                 "attendee",
@@ -52,5 +32,23 @@ public class MenuAttendee extends JFrame{
                 false
         );
         EventQueue.invokeLater(() -> new MenuAttendee(attendee));
+    }
+
+    private void addActionEvent() {
+        buttonGoToRoomAttendeeViewMenuAttendee.addActionListener(event -> {
+            this.dispose();
+            new GoToRoomAttendee(loginUser);
+        });
+        buttonResultAttendeeViewMenuAttendee.addActionListener(event -> {
+            this.dispose();
+            new ResultAttendee(loginUser);
+        });
+        buttonLogoutViewMenuAttendee.addActionListener(event -> {
+            this.dispose();
+            new Login();
+        });
+    }
+
+    private void createUIComponents() {
     }
 }

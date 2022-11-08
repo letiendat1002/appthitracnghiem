@@ -294,6 +294,5 @@ public class QuestionManagement extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }
