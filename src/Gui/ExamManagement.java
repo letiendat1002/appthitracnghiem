@@ -102,9 +102,9 @@ public class ExamManagement extends JFrame {
                         JOptionPane.WARNING_MESSAGE
                 );
             } else {
-                var subject = textfieldSubjectNameViewExamManagement.getText().trim();
-                var totalQuestion = Integer.parseInt(textfieldTotalQuestionViewExamManagement.getText().trim());
-                var totalScore = Integer.parseInt(textfieldTotalScoreViewExamManagement.getText().trim());
+                var subject = textfieldSubjectNameViewExamManagement.getText().strip();
+                var totalQuestion = Integer.parseInt(textfieldTotalQuestionViewExamManagement.getText().strip());
+                var totalScore = Integer.parseInt(textfieldTotalScoreViewExamManagement.getText().strip());
                 var scorePerQuestion = totalScore / (double) totalQuestion;
                 var exam = new Exam(subject, totalQuestion, totalScore, scorePerQuestion);
                 var isSuccess = ExamDAO.insert(exam);
@@ -140,10 +140,10 @@ public class ExamManagement extends JFrame {
                         JOptionPane.WARNING_MESSAGE
                 );
             } else {
-                var exam_id = Long.parseLong(textfieldExamIDViewExamManagement.getText().trim());
-                var subject = textfieldSubjectNameViewExamManagement.getText().trim();
-                var totalQuestion = Integer.parseInt(textfieldTotalQuestionViewExamManagement.getText().trim());
-                var totalScore = Integer.parseInt(textfieldTotalScoreViewExamManagement.getText().trim());
+                var exam_id = Long.parseLong(textfieldExamIDViewExamManagement.getText().strip());
+                var subject = textfieldSubjectNameViewExamManagement.getText().strip();
+                var totalQuestion = Integer.parseInt(textfieldTotalQuestionViewExamManagement.getText().strip());
+                var totalScore = Integer.parseInt(textfieldTotalScoreViewExamManagement.getText().strip());
                 var scorePerQuestion = totalScore / (double) totalQuestion;
                 var exam = new Exam(exam_id, subject, totalQuestion, totalScore, scorePerQuestion);
                 var isSuccess = ExamDAO.update(exam);
@@ -168,7 +168,7 @@ public class ExamManagement extends JFrame {
         });
 
         buttonDeleteViewExamManagement.addActionListener(event -> {
-            var examID = textfieldExamIDViewExamManagement.getText().trim();
+            var examID = textfieldExamIDViewExamManagement.getText().strip();
             if (!examID.isEmpty()) {
                 var isSuccess = ExamDAO.delete(Long.parseLong(examID));
                 if (isSuccess) {
@@ -241,7 +241,7 @@ public class ExamManagement extends JFrame {
                 .addDocumentListener(new DocumentListener() {
                     @Override
                     public void insertUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewExamManagement.getText().trim();
+                        var text = textfieldFindViewExamManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
@@ -251,7 +251,7 @@ public class ExamManagement extends JFrame {
 
                     @Override
                     public void removeUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewExamManagement.getText().trim();
+                        var text = textfieldFindViewExamManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {

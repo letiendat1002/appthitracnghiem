@@ -45,8 +45,8 @@ public class GoToRoomAttendee extends JFrame {
         });
 
         buttonGoToRoomViewGoToRoomAttendee.addActionListener(event -> {
-            var roomID = textfieldRoomIDViewGoToRoomAttendee.getText().trim();
-            var password = String.valueOf(passwordfieldPasswordViewGoToRoomAttendee.getPassword()).trim();
+            var roomID = textfieldRoomIDViewGoToRoomAttendee.getText().strip();
+            var password = String.valueOf(passwordfieldPasswordViewGoToRoomAttendee.getPassword()).strip();
             if (roomID.isEmpty() || password.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         this,

@@ -93,7 +93,7 @@ public class RoomResultSummary extends JFrame {
                 .addDocumentListener(new DocumentListener() {
                     @Override
                     public void insertUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewRoomResultSummary.getText().trim();
+                        var text = textfieldFindViewRoomResultSummary.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
@@ -103,7 +103,7 @@ public class RoomResultSummary extends JFrame {
 
                     @Override
                     public void removeUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewRoomResultSummary.getText().trim();
+                        var text = textfieldFindViewRoomResultSummary.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {

@@ -106,7 +106,7 @@ public class QuestionAnswerManagement extends JFrame {
                 );
                 return;
             }
-            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionAnswerManagement.getText().trim());
+            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionAnswerManagement.getText().strip());
             var checkValidQuestionID = QuestionDAO.selectByID(question_id);
             if (checkValidQuestionID == null) {
                 JOptionPane.showMessageDialog(
@@ -117,7 +117,7 @@ public class QuestionAnswerManagement extends JFrame {
                 );
                 return;
             }
-            var content = textfieldAnswerContentViewQuestionAnswerManagement.getText().trim();
+            var content = textfieldAnswerContentViewQuestionAnswerManagement.getText().strip();
             var isCorrect = checkboxCorrectAnswerViewQuestionAnswerManagement.isSelected();
             var questionAnswer = new QuestionAnswer(question_id, content, isCorrect);
             var isSuccess = QuestionAnswerDAO.insert(questionAnswer);
@@ -152,8 +152,8 @@ public class QuestionAnswerManagement extends JFrame {
                 );
                 return;
             }
-            var question_answer_id = Long.parseLong(textfieldQuestionAnswerIDViewQuestionAnswerManagement.getText().trim());
-            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionAnswerManagement.getText().trim());
+            var question_answer_id = Long.parseLong(textfieldQuestionAnswerIDViewQuestionAnswerManagement.getText().strip());
+            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionAnswerManagement.getText().strip());
             var checkValidQuestionID = QuestionDAO.selectByID(question_id);
             if (checkValidQuestionID == null) {
                 JOptionPane.showMessageDialog(
@@ -164,7 +164,7 @@ public class QuestionAnswerManagement extends JFrame {
                 );
                 return;
             }
-            var content = textfieldAnswerContentViewQuestionAnswerManagement.getText().trim();
+            var content = textfieldAnswerContentViewQuestionAnswerManagement.getText().strip();
             var isCorrect = checkboxCorrectAnswerViewQuestionAnswerManagement.isSelected();
             var questionAnswer = new QuestionAnswer(question_answer_id, question_id, content, isCorrect);
             var isSuccess = QuestionAnswerDAO.update(questionAnswer);
@@ -188,7 +188,7 @@ public class QuestionAnswerManagement extends JFrame {
         });
 
         buttonDeleteViewQuestionAnswerManagement.addActionListener(event -> {
-            var questionAnswerID = textfieldQuestionAnswerIDViewQuestionAnswerManagement.getText().trim();
+            var questionAnswerID = textfieldQuestionAnswerIDViewQuestionAnswerManagement.getText().strip();
             if (!questionAnswerID.isEmpty()) {
                 var isSuccess = QuestionAnswerDAO.delete(Long.parseLong(questionAnswerID));
                 if (isSuccess) {
@@ -261,7 +261,7 @@ public class QuestionAnswerManagement extends JFrame {
                 .addDocumentListener(new DocumentListener() {
                     @Override
                     public void insertUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewQuestionAnswerManagement.getText().trim();
+                        var text = textfieldFindViewQuestionAnswerManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
@@ -271,7 +271,7 @@ public class QuestionAnswerManagement extends JFrame {
 
                     @Override
                     public void removeUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewQuestionAnswerManagement.getText().trim();
+                        var text = textfieldFindViewQuestionAnswerManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {

@@ -100,7 +100,7 @@ public class TakeExamAttendee extends JFrame {
             return;
         }
         labelDataTotalQuestionViewTakeExamAttendee.setText(String.valueOf(exam.getTotal_question()));
-        labelRoomTitleViewTakeExamAttendee.setText(room.getTitle().trim());
+        labelRoomTitleViewTakeExamAttendee.setText(room.getTitle().strip());
         labelDataRoomIDViewTakeExamAttendee.setText(String.valueOf(room.getRoom_id()));
         labelDataTimeLimitViewTakeExamAttendee.setText(String.valueOf(room.getTime_limit()));
         listOfQuestionAnswerList = new ArrayList<>();
