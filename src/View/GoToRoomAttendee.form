@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.GoToRoomAttendee">
+  <grid id="27dc6" binding="panelViewGoToRoomAttendee" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="409" height="363"/>
+    </constraints>
+    <properties>
+      <preferredSize width="350" height="250"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="84c18" class="javax.swing.JLabel" binding="labelRoomIDViewGoToRoomAttendee">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="1" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nhập mã phòng:"/>
+        </properties>
+      </component>
+      <component id="2abef" class="javax.swing.JTextField" binding="textfieldRoomIDViewGoToRoomAttendee">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+      <component id="7b0c3" class="javax.swing.JLabel" binding="labelPasswordViewGoToRoomAttendee">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="2" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mật khẩu:"/>
+        </properties>
+      </component>
+      <component id="b6369" class="javax.swing.JPasswordField" binding="passwordfieldPasswordViewGoToRoomAttendee">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+      <component id="dcc48" class="javax.swing.JButton" binding="buttonGoToRoomViewGoToRoomAttendee">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Vào phòng"/>
+        </properties>
+      </component>
+      <component id="897e4" class="javax.swing.JButton" binding="buttonBackViewGoToRoomAttendee">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Quay lại"/>
+        </properties>
+      </component>
+      <component id="6066c" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="805e3" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="7d217" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="9cf66" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="6b7a9" class="javax.swing.JCheckBox" binding="checkboxShowPasswordViewGoToRoomAttendee">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Hiện mật khẩu"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

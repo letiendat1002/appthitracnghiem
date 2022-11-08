@@ -1,6 +1,6 @@
 package Main;
 
-import Gui.Login;
+import View.Login;
 
 import java.awt.*;
 

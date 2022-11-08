@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.Login">
+  <grid id="27dc6" binding="panelViewLogin" layout-manager="GridLayoutManager" row-count="7" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="546" height="370"/>
+    </constraints>
+    <properties>
+      <enabled value="true"/>
+      <preferredSize width="350" height="250"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="f4963" class="javax.swing.JLabel" binding="labelUsernameViewLogin">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Tên đăng nhập:"/>
+        </properties>
+      </component>
+      <component id="96a3e" class="javax.swing.JLabel" binding="labelPasswordViewLogin">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mật khẩu:"/>
+        </properties>
+      </component>
+      <component id="a8dbf" class="javax.swing.JButton" binding="buttonLoginViewLogin">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Đăng nhập"/>
+        </properties>
+      </component>
+      <component id="5b47e" class="javax.swing.JTextField" binding="textfieldUsernameViewLogin">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <columns value="0"/>
+          <font size="16" style="1"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="edda2" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="682b9" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="3dc52" class="javax.swing.JButton" binding="buttonQuitViewLogin">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Thoát"/>
+        </properties>
+      </component>
+      <component id="160b5" class="javax.swing.JPasswordField" binding="passwordfieldPasswordViewLogin">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <columns value="0"/>
+          <echoChar value="*"/>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+      <component id="829e7" class="javax.swing.JLabel" binding="labelSignupViewLogin">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Không có tài khoản?"/>
+        </properties>
+      </component>
+      <component id="67ac8" class="javax.swing.JButton" binding="buttonSignupViewLogin">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Đăng ký"/>
+        </properties>
+      </component>
+      <component id="2f7f4" class="javax.swing.JCheckBox" binding="checkboxShowPasswordViewLogin">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Hiện mật khẩu"/>
+        </properties>
+      </component>
+      <component id="ee59f" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="637a6" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+</form>
