@@ -5,7 +5,8 @@ import Model.User;
 import javax.swing.*;
 import java.awt.*;
 
-public class MenuAdmin extends JFrame{
+public class MenuAdmin extends JFrame {
+    private final User loginUser;
     private JButton buttonUserManagementViewMenuAdmin;
     private JButton buttonLogoutViewMenuAdmin;
     private JButton buttonRoomManagementViewMenuAdmin;
@@ -13,9 +14,7 @@ public class MenuAdmin extends JFrame{
     private JButton buttonExamManagementViewMenuAdmin;
     private JPanel panelViewMenuAdmin;
 
-    private final User loginUser;
-
-    public MenuAdmin(User user){
+    public MenuAdmin(User user) {
         this.loginUser = user;
         addActionEvent();
         this.setTitle("Menu Admin");
@@ -27,18 +26,23 @@ public class MenuAdmin extends JFrame{
         this.setVisible(true);
     }
 
+    public static void main(String[] args) {
+        User admin = new User("admin", "admin", "admin", true);
+        EventQueue.invokeLater(() -> new MenuAdmin(admin));
+    }
+
     private void addActionEvent() {
         buttonUserManagementViewMenuAdmin.addActionListener(event -> {
-           this.dispose();
-           new UserManagement(loginUser);
+            this.dispose();
+            new UserManagement(loginUser);
         });
         buttonExamManagementViewMenuAdmin.addActionListener(event -> {
             this.dispose();
             new ExamManagement(loginUser);
         });
         buttonQuestionManagementViewMenuAdmin.addActionListener(event -> {
-           this.dispose();
-           new QuestionManagement(loginUser);
+            this.dispose();
+            new QuestionManagement(loginUser);
         });
         buttonRoomManagementViewMenuAdmin.addActionListener(event -> {
             this.dispose();
@@ -51,11 +55,5 @@ public class MenuAdmin extends JFrame{
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
-
-    public static void main(String[] args) {
-        User admin = new User("admin", "admin", "admin", true);
-        EventQueue.invokeLater(() -> new MenuAdmin(admin));
     }
 }

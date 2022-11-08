@@ -67,7 +67,7 @@ public class GoToRoomAttendee extends JFrame {
                 passwordfieldPasswordViewGoToRoomAttendee.setText("");
                 return;
             }
-            if(!room.isAvailable()){
+            if (!room.isAvailable()) {
                 JOptionPane.showMessageDialog(
                         this,
                         "Phòng thi đã bị đóng!",
@@ -125,6 +125,5 @@ public class GoToRoomAttendee extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }
