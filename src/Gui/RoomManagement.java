@@ -124,7 +124,7 @@ public class RoomManagement extends JFrame {
                 );
                 return;
             }
-            var exam_id = Long.parseLong(textfiledExamIDViewRoomManagement.getText().trim());
+            var exam_id = Long.parseLong(textfiledExamIDViewRoomManagement.getText().strip());
             var checkValidExamID = ExamDAO.selectByID(exam_id);
             if (checkValidExamID == null) {
                 JOptionPane.showMessageDialog(
@@ -135,9 +135,9 @@ public class RoomManagement extends JFrame {
                 );
                 return;
             }
-            var title = textfieldRoomTitleViewRoomManaGement.getText().trim();
-            var time_limit = Integer.parseInt(textfieldTimeLimitViewRoomManagement.getText().trim());
-            var password = textfieldRoomPasswordViewRoomManagement.getText().trim();
+            var title = textfieldRoomTitleViewRoomManaGement.getText().strip();
+            var time_limit = Integer.parseInt(textfieldTimeLimitViewRoomManagement.getText().strip());
+            var password = textfieldRoomPasswordViewRoomManagement.getText().strip();
             var is_available = radiobuttonOpenViewRoomManagement.isSelected();
             var room = new Room(exam_id, title, time_limit, password, is_available);
             var isSuccess = RoomDAO.insert(room);
@@ -178,8 +178,8 @@ public class RoomManagement extends JFrame {
                 );
                 return;
             }
-            var room_id = Long.parseLong(textfieldRoomIDViewRoomManagement.getText().trim());
-            var exam_id = Long.parseLong(textfiledExamIDViewRoomManagement.getText().trim());
+            var room_id = Long.parseLong(textfieldRoomIDViewRoomManagement.getText().strip());
+            var exam_id = Long.parseLong(textfiledExamIDViewRoomManagement.getText().strip());
             var checkValidExamID = ExamDAO.selectByID(exam_id);
             if (checkValidExamID == null) {
                 JOptionPane.showMessageDialog(
@@ -190,9 +190,9 @@ public class RoomManagement extends JFrame {
                 );
                 return;
             }
-            var title = textfieldRoomTitleViewRoomManaGement.getText().trim();
-            var time_limit = Integer.parseInt(textfieldTimeLimitViewRoomManagement.getText().trim());
-            var password = textfieldRoomPasswordViewRoomManagement.getText().trim();
+            var title = textfieldRoomTitleViewRoomManaGement.getText().strip();
+            var time_limit = Integer.parseInt(textfieldTimeLimitViewRoomManagement.getText().strip());
+            var password = textfieldRoomPasswordViewRoomManagement.getText().strip();
             var is_available = radiobuttonOpenViewRoomManagement.isSelected();
             var room = new Room(room_id, exam_id, title, time_limit, password, is_available);
             var isSuccess = RoomDAO.update(room);
@@ -216,7 +216,7 @@ public class RoomManagement extends JFrame {
         });
 
         buttonDeleteViewRoomManagement.addActionListener(event -> {
-            var roomID = textfieldRoomIDViewRoomManagement.getText().trim();
+            var roomID = textfieldRoomIDViewRoomManagement.getText().strip();
             if (!roomID.isEmpty()) {
                 var isSuccess = RoomDAO.delete(Long.parseLong(roomID));
                 if (isSuccess) {
@@ -304,7 +304,7 @@ public class RoomManagement extends JFrame {
                 .addDocumentListener(new DocumentListener() {
                     @Override
                     public void insertUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewRoomManagement.getText().trim();
+                        var text = textfieldFindViewRoomManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
@@ -314,7 +314,7 @@ public class RoomManagement extends JFrame {
 
                     @Override
                     public void removeUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewRoomManagement.getText().trim();
+                        var text = textfieldFindViewRoomManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {

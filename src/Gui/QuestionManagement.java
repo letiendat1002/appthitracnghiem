@@ -104,7 +104,7 @@ public class QuestionManagement extends JFrame {
                 );
                 return;
             }
-            var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().trim());
+            var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().strip());
             var checkValidExamID = ExamDAO.selectByID(exam_id);
             if (checkValidExamID == null) {
                 JOptionPane.showMessageDialog(
@@ -116,7 +116,7 @@ public class QuestionManagement extends JFrame {
                 return;
             }
             var level = comboboxLevelViewQuestionManagement.getSelectedIndex() + 1;
-            var content = textfieldQuestionContentViewQuestionManagement.getText().trim();
+            var content = textfieldQuestionContentViewQuestionManagement.getText().strip();
             var question = new Question(exam_id, level, content);
             var isSuccess = QuestionDAO.insert(question);
             if (isSuccess) {
@@ -150,8 +150,8 @@ public class QuestionManagement extends JFrame {
                 );
                 return;
             }
-            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionManagement.getText().trim());
-            var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().trim());
+            var question_id = Long.parseLong(textfieldQuestionIDViewQuestionManagement.getText().strip());
+            var exam_id = Long.parseLong(textfieldExamIDViewQuestionManagement.getText().strip());
             var checkValidExamID = ExamDAO.selectByID(exam_id);
             if (checkValidExamID == null) {
                 JOptionPane.showMessageDialog(
@@ -163,7 +163,7 @@ public class QuestionManagement extends JFrame {
                 return;
             }
             var level = comboboxLevelViewQuestionManagement.getSelectedIndex() + 1;
-            var content = textfieldQuestionContentViewQuestionManagement.getText().trim();
+            var content = textfieldQuestionContentViewQuestionManagement.getText().strip();
             var question = new Question(question_id, exam_id, level, content);
             var isSuccess = QuestionDAO.update(question);
             if (isSuccess) {
@@ -186,7 +186,7 @@ public class QuestionManagement extends JFrame {
         });
 
         buttonDeleteViewQuestionManagement.addActionListener(e -> {
-            var questionID = textfieldQuestionIDViewQuestionManagement.getText().trim();
+            var questionID = textfieldQuestionIDViewQuestionManagement.getText().strip();
             if (!questionID.isEmpty()) {
                 var isSuccess = QuestionDAO.delete(Long.parseLong(questionID));
                 if (isSuccess) {
@@ -269,7 +269,7 @@ public class QuestionManagement extends JFrame {
                 .addDocumentListener(new DocumentListener() {
                     @Override
                     public void insertUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewQuestionManagement.getText().trim();
+                        var text = textfieldFindViewQuestionManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
@@ -279,7 +279,7 @@ public class QuestionManagement extends JFrame {
 
                     @Override
                     public void removeUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewQuestionManagement.getText().trim();
+                        var text = textfieldFindViewQuestionManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {

@@ -86,7 +86,7 @@ public class ResultAttendee extends JFrame {
                 .addDocumentListener(new DocumentListener() {
                     @Override
                     public void insertUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewResultAttendee.getText().trim();
+                        var text = textfieldFindViewResultAttendee.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
@@ -96,7 +96,7 @@ public class ResultAttendee extends JFrame {
 
                     @Override
                     public void removeUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewResultAttendee.getText().trim();
+                        var text = textfieldFindViewResultAttendee.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {

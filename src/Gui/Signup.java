@@ -36,10 +36,10 @@ public class Signup extends JFrame {
 
     private void addActionEvent() {
         buttonSignupViewSignup.addActionListener(event -> {
-            var userID = textfieldUserIDViewSignup.getText().trim();
-            var fullName = textfieldFullnameViewSignup.getText().trim();
-            var password = String.valueOf(passwordfieldPasswordViewSignup.getPassword()).trim();
-            var passwordAgain = String.valueOf(passwordfieldPasswordAgainViewSignup.getPassword()).trim();
+            var userID = textfieldUserIDViewSignup.getText().strip();
+            var fullName = textfieldFullnameViewSignup.getText().strip();
+            var password = String.valueOf(passwordfieldPasswordViewSignup.getPassword()).strip();
+            var passwordAgain = String.valueOf(passwordfieldPasswordAgainViewSignup.getPassword()).strip();
             if (userID.isEmpty() || fullName.isEmpty() || password.isEmpty() || passwordAgain.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         this,

@@ -109,9 +109,9 @@ public class UserManagement extends JFrame {
         );
 
         buttonAddViewUserManagement.addActionListener(event -> {
-            var userID = textfieldUserIDViewUserManagement.getText().trim();
-            var fullName = textfieldFullnameViewUserManagement.getText().trim();
-            var password = textfieldPasswordViewUserManagement.getText().trim();
+            var userID = textfieldUserIDViewUserManagement.getText().strip();
+            var fullName = textfieldFullnameViewUserManagement.getText().strip();
+            var password = textfieldPasswordViewUserManagement.getText().strip();
             var radioHost = radiobuttonHostViewUserManagement.isSelected();
             var radioAttendee = radiobuttonAttendeeViewUserManagement.isSelected();
             var radioIsSelected = radioHost || radioAttendee;
@@ -162,9 +162,9 @@ public class UserManagement extends JFrame {
         });
 
         buttonUpdateViewUserManagement.addActionListener(event -> {
-            var userID = textfieldUserIDViewUserManagement.getText().trim();
-            var fullName = textfieldFullnameViewUserManagement.getText().trim();
-            var password = textfieldPasswordViewUserManagement.getText().trim();
+            var userID = textfieldUserIDViewUserManagement.getText().strip();
+            var fullName = textfieldFullnameViewUserManagement.getText().strip();
+            var password = textfieldPasswordViewUserManagement.getText().strip();
             var radioHost = radiobuttonHostViewUserManagement.isSelected();
             var radioAttendee = radiobuttonAttendeeViewUserManagement.isSelected();
             var radioIsSelected = radioHost || radioAttendee;
@@ -206,7 +206,7 @@ public class UserManagement extends JFrame {
         });
 
         buttonDeleteViewUserManagement.addActionListener(event -> {
-            var userID = textfieldUserIDViewUserManagement.getText().trim();
+            var userID = textfieldUserIDViewUserManagement.getText().strip();
             if (!userID.isEmpty()) {
                 var isSuccess = UserDAO.delete(userID);
                 if (isSuccess) {
@@ -278,7 +278,7 @@ public class UserManagement extends JFrame {
                 .addDocumentListener(new DocumentListener() {
                     @Override
                     public void insertUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewUserManagement.getText().trim();
+                        var text = textfieldFindViewUserManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {
@@ -288,7 +288,7 @@ public class UserManagement extends JFrame {
 
                     @Override
                     public void removeUpdate(DocumentEvent e) {
-                        var text = textfieldFindViewUserManagement.getText().trim();
+                        var text = textfieldFindViewUserManagement.getText().strip();
                         if (text.length() != 0) {
                             rowSorter.setRowFilter(RowFilter.regexFilter(text));
                         } else {

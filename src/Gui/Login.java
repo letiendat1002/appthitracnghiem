@@ -37,8 +37,8 @@ public class Login extends JFrame {
 
     private void addActionEvent() {
         buttonLoginViewLogin.addActionListener(event -> {
-            var username = textfieldUsernameViewLogin.getText().trim();
-            var password = String.valueOf(passwordfieldPasswordViewLogin.getPassword()).trim();
+            var username = textfieldUsernameViewLogin.getText().strip();
+            var password = String.valueOf(passwordfieldPasswordViewLogin.getPassword()).strip();
             if (username.isEmpty() || password.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         this,
