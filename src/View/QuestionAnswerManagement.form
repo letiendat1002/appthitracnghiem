@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.QuestionAnswerManagement">
+  <grid id="27dc6" binding="panelViewQuestionAnswerManagement" layout-manager="GridLayoutManager" row-count="26" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="829" height="627"/>
+    </constraints>
+    <properties>
+      <preferredSize width="700" height="500"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="4dc92" class="javax.swing.JLabel" binding="labelQuestionIDViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mã Câu hỏi:"/>
+        </properties>
+      </component>
+      <component id="3a18d" class="javax.swing.JLabel" binding="labelAnswerContentViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Đáp án:"/>
+        </properties>
+      </component>
+      <component id="253fc" class="javax.swing.JTextField" binding="textfieldAnswerContentViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+      <scrollpane id="9e665">
+        <constraints>
+          <grid row="7" column="0" row-span="19" col-span="8" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="2fed6" class="javax.swing.JTable" binding="tableViewQuestionAnswerManagement">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="aaeb5" class="javax.swing.JTextField" binding="textfieldQuestionIDViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+      <component id="687d1" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="963fd" class="javax.swing.JButton" binding="buttonAddViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Thêm"/>
+        </properties>
+      </component>
+      <component id="fe6f5" class="javax.swing.JButton" binding="buttonUpdateViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cập Nhật"/>
+        </properties>
+      </component>
+      <component id="759fb" class="javax.swing.JButton" binding="buttonDeleteViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Xóa"/>
+        </properties>
+      </component>
+      <component id="2770d" class="javax.swing.JCheckBox" binding="checkboxCorrectAnswerViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Đáp án đúng"/>
+        </properties>
+      </component>
+      <component id="b9197" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="e789f" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="29407" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="6e9f8" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="1b401" class="javax.swing.JButton" binding="buttonRefreshViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Làm mới"/>
+        </properties>
+      </component>
+      <component id="2473d" class="javax.swing.JButton" binding="buttonBackViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Quay Lại"/>
+        </properties>
+      </component>
+      <component id="26074" class="javax.swing.JLabel" binding="labelQuestionAnswerIDViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mã Đáp án:"/>
+        </properties>
+      </component>
+      <component id="82276" class="javax.swing.JTextField" binding="textfieldQuestionAnswerIDViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+      <component id="cf36" class="javax.swing.JLabel" binding="labelFindViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Tìm kiếm:"/>
+        </properties>
+      </component>
+      <component id="f739" class="javax.swing.JTextField" binding="textfieldFindViewQuestionAnswerManagement">
+        <constraints>
+          <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

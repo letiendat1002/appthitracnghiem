@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.UserManagement">
+  <grid id="27dc6" binding="panelViewUserManagement" layout-manager="GridLayoutManager" row-count="8" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="772" height="574"/>
+    </constraints>
+    <properties>
+      <preferredSize width="700" height="500"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="11530" class="javax.swing.JLabel" binding="labelUserIDViewUserManagement">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Tên tài khoản (UserID):"/>
+        </properties>
+      </component>
+      <component id="f35c7" class="javax.swing.JTextField" binding="textfieldUserIDViewUserManagement">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+      <component id="3b46d" class="javax.swing.JLabel" binding="labelFullNameViewUserManagement">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Họ và tên:"/>
+        </properties>
+      </component>
+      <component id="71596" class="javax.swing.JTextField" binding="textfieldFullnameViewUserManagement">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+      <component id="38cc6" class="javax.swing.JLabel" binding="labelPasswordViewUserManagement">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mật khẩu:"/>
+        </properties>
+      </component>
+      <component id="cb59c" class="javax.swing.JTextField" binding="textfieldPasswordViewUserManagement">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="89341" class="javax.swing.JLabel" binding="labelUserRoleViewUserManagement">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Vai trò:"/>
+        </properties>
+      </component>
+      <component id="a6ef1" class="javax.swing.JRadioButton" binding="radiobuttonHostViewUserManagement">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="14" style="1"/>
+          <text value="Host"/>
+        </properties>
+      </component>
+      <component id="f7e4a" class="javax.swing.JButton" binding="buttonAddViewUserManagement">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Thêm"/>
+        </properties>
+      </component>
+      <component id="55d4a" class="javax.swing.JButton" binding="buttonUpdateViewUserManagement">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cập nhật"/>
+        </properties>
+      </component>
+      <component id="55ff1" class="javax.swing.JButton" binding="buttonDeleteViewUserManagement">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Xóa"/>
+        </properties>
+      </component>
+      <scrollpane id="14683">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="9" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="8e6fe" class="javax.swing.JTable" binding="tableViewUserManagement">
+            <constraints/>
+            <properties>
+              <autoCreateRowSorter value="false"/>
+              <cellSelectionEnabled value="false"/>
+              <columnSelectionAllowed value="false"/>
+              <editingColumn value="-1"/>
+              <editingRow value="-1"/>
+              <intercellSpacing width="1" height="1"/>
+              <rowSelectionAllowed value="true"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="583f5" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="b4380" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="e2655" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="a4af8" class="javax.swing.JRadioButton" binding="radiobuttonAttendeeViewUserManagement">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="14" style="1"/>
+          <text value="Attendee"/>
+        </properties>
+      </component>
+      <component id="a2fd4" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="f4c23" class="javax.swing.JToolBar$Separator">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="458cb" class="javax.swing.JButton" binding="buttonBackViewUserManagement">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Quay lại"/>
+        </properties>
+      </component>
+      <component id="a562c" class="javax.swing.JButton" binding="buttonRefreshViewUserManagement">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Làm mới"/>
+        </properties>
+      </component>
+      <component id="6a59" class="javax.swing.JCheckBox" binding="checkboxChangePasswordViewUserManagement">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <selected value="true"/>
+          <text value="Đổi mật khẩu"/>
+        </properties>
+      </component>
+      <component id="7b38a" class="javax.swing.JLabel" binding="labelFindViewUserManagement">
+        <constraints>
+          <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Tìm kiếm:"/>
+        </properties>
+      </component>
+      <component id="4c88c" class="javax.swing.JTextField" binding="textfieldFindViewUserManagement">
+        <constraints>
+          <grid row="6" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="16" style="1"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="buttonGroupViewUserManagement">
+      <member id="a4af8"/>
+    </group>
+  </buttonGroups>
+</form>
