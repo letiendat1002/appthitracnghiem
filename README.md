@@ -1,5 +1,5 @@
 # appthitracnghiem
-Quiz Management App - Ứng dụng quản lý thi trắc nghiệm
+Quiz App - Ứng dụng quản lý và cho thi trắc nghiệm
 
 ## Công nghệ sử dụng
 - Giao diện: Java Swing
@@ -32,7 +32,7 @@ Quiz Management App - Ứng dụng quản lý thi trắc nghiệm
 
   <img width="40%" src="https://i.ibb.co/vPzkRzH/user-management.png" alt="User Management"/>
   
-  - <p align="justify">Admin có thể nhập dữ liệu vào các text field Tên tài khoản, họ và tên, mật khẩu, chọn vai trò để thêm người dùng vào hệ thống</p>
+  - <p align="justify">Admin có thể nhập dữ liệu vào các text field Tên tài khoản, họ và tên, mật khẩu, chọn vai trò để thêm người dùng vào hệ thống.</p>
 
     <img width="40%" src="https://i.ibb.co/c3WZ4G4/user-management-insert.png" alt="User Management Insert"/>
 
